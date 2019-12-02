@@ -19,13 +19,13 @@ router.get("/users", (req, res) => {
 router.post('/user_create', (req, res) => {
     console.log("Trying to create a new user...")
 
-    console.log("First name: " + req.body.create_username)
+    console.log("Username: " + req.body.create_username)
     const username = req.body.create_username
     const password = req.body.create_password
 
     const connection = getConnection()
 
-    const queryString = "INSERT INTP users {first_name, last_name} VALUES (?, ?)"
+    const queryString = "INSERT INTO users {username, password} VALUES (?, ?)"
     connection.query(queryString, [username, password], (err, results, fields) => {
         if (err) {
             console.log("Failed to insert new user: " + err)
