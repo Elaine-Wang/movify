@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
+const path = require('path');
 
 const bodyParser = require('body-parser')
 
