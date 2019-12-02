@@ -19,14 +19,14 @@ router.get("/users", (req, res) => {
 router.post('/user_create', (req, res) => {
     console.log("Trying to create a new user...")
 
-    console.log("First name: " + req.body.create_first_name)
-    const firstName = req.body.create_first_name
-    const lastName = req.body.create_last_name
+    console.log("First name: " + req.body.create_username)
+    const username = req.body.create_username
+    const password = req.body.create_password
 
     const connection = getConnection()
 
     const queryString = "INSERT INTP users {first_name, last_name} VALUES (?, ?)"
-    connection.query(queryString, [firstName, lastName], (err, results, fields) => {
+    connection.query(queryString, [username, password], (err, results, fields) => {
         if (err) {
             console.log("Failed to insert new user: " + err)
             res.sendStatus(500)
@@ -67,14 +67,14 @@ router.get('/user/:id', (req, res) => {
 
 const pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    database: 'db_name'
+    host: 'us-cdbr-iron-east-05.cleardb.net',
+    user: 'b04a078ee0777f',
+    password: '22fcc01e',
+    database: 'heroku_de2493ad86ba222'
 })
 
 function getConnection() {
     return pool
 }
-
 
 module.exports = router
