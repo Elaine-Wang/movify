@@ -19,8 +19,6 @@ class Gallery extends Component {
     this.loadGallery = this.loadGallery.bind(this);
     this.pushToDetail = this.pushToDetail.bind(this);
     this.filterGenre = this.filterGenre.bind(this);
-    this.nextPage = this.nextPage.bind(this);
-    this.loadMore = this.loadMore.bind(this);
   }
 
   loadGallery() {
@@ -60,7 +58,7 @@ class Gallery extends Component {
     return(
       <div className="Gallery">
         <Divider hidden/><Divider hidden/>
-        {/* <Button className="mybutton" id={this.props.genre} onClick={this.loadGallery}>All</Button> */}
+        <Button className="mybutton" id={this.props.genre} onClick={this.loadGallery}>All</Button>
         <Button id="28" className="mybutton" onClick={this.filterGenre}>Action</Button>
         <Button id="12" className="mybutton" onClick={this.filterGenre}>Adventure</Button>
         <Button id="16" className="mybutton" onClick={this.filterGenre}>Animation</Button>
