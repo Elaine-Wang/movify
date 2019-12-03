@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Divider, Form } from 'semantic-ui-react'
+import { Divider, Form, Icon } from 'semantic-ui-react'
 import axios from 'axios'
+
+import styles from './Create.scss'
 
 export default class Create extends Component {
   constructor(props) {
@@ -70,29 +72,29 @@ export default class Create extends Component {
           <div key={user.id}>{user.username}</div>
         )} */}
 
-        <div className="container register-form">
+        <div className="centerMe">
           <Form onSubmit={this.handleCreate} method="POST">
             <Form.Input placeholder='Title' name="title" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Language' name="original_language" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Overview' name="overview" onChange={this.handleChange}></Form.Input>
-            <Form.Button>Create</Form.Button>
+            <Form.Button className="mybutton">Create</Form.Button>
           </Form>
 
-          <Divider horizontal>Or</Divider>
+          <Divider horizontal><Icon circular name="video" /></Divider>
 
           <Form onSubmit={this.handleUpdate} method="POST">
             <Form.Input placeholder='Original title' name="orig_title" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='New title' name="new_title" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Language' name="original_language" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Overview' name="overview" onChange={this.handleChange}></Form.Input>
-            <Form.Button>Update</Form.Button>
+            <Form.Button className="mybutton">Update</Form.Button>
           </Form>
 
-          <Divider horizontal>Or</Divider>
+          <Divider horizontal><Icon circular name="video" /></Divider>
 
           <Form onSubmit={this.handleDelete} method="POST">
             <Form.Input placeholder='Title' name="title" onChange={this.handleChange}></Form.Input>
-            <Form.Button>Delete</Form.Button>
+            <Form.Button className="mybutton">Delete</Form.Button>
           </Form>
         </div>
       </div>
