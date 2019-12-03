@@ -85,8 +85,8 @@ export default class Create extends Component {
           <Form onSubmit={this.handleUpdate} method="POST">
             <Form.Input placeholder='Original title' name="orig_title" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='New title' name="new_title" onChange={this.handleChange}></Form.Input>
-            <Form.Input placeholder='Language' name="original_language" onChange={this.handleChange}></Form.Input>
-            <Form.Input placeholder='Overview' name="overview" onChange={this.handleChange}></Form.Input>
+            <Form.Input placeholder='New language' name="original_language" onChange={this.handleChange}></Form.Input>
+            <Form.Input placeholder='New overview' name="overview" onChange={this.handleChange}></Form.Input>
             <Form.Button>Update</Form.Button>
           </Form>
 
