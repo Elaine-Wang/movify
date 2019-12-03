@@ -232,6 +232,6 @@ class Home extends Component {
   }
 }
 
-render(<Home/>,document.getElementById('app'))
+render(<Home/>,document.getElementById("app"))
 
 export default Home
