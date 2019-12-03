@@ -51,7 +51,7 @@ router.get('/movie/:title', (req, res) => {
     const connection = getConnection()
 
     const movieTitle = req.params.title
-    const queryString = "SELECT * FROM movies WHERE LOWER(movies.title) LIKE LOWER(\"%?%\")"
+    const queryString = "SELECT * FROM movies WHERE LOWER(movies.title) LIKE LOWER(\"%\"?\"%\")"
     connection.query(queryString, [movieTitle], (err, rows, fields) => {
         console.log(queryString)
         if (err) {
