@@ -80,7 +80,7 @@ export default class Create extends Component {
             <Form.Button>Create</Form.Button>
           </Form>
 
-          <Divider horizontal><Icon circular name="video" /></Divider>
+          <Divider horizontal><Icon inverted circular name="video" /></Divider>
 
           <Form onSubmit={this.handleUpdate} method="POST">
             <Form.Input placeholder='Original title' name="orig_title" onChange={this.handleChange}></Form.Input>
@@ -90,7 +90,7 @@ export default class Create extends Component {
             <Form.Button>Update</Form.Button>
           </Form>
 
-          <Divider horizontal><Icon circular name="video" /></Divider>
+          <Divider horizontal><Icon inverted circular name="video" /></Divider>
 
           <Form onSubmit={this.handleDelete} method="POST">
             <Form.Input placeholder='Title' name="title" onChange={this.handleChange}></Form.Input>
