@@ -7,8 +7,8 @@ const path = require('path');
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({extended: false}))
-//app.use(express.static(path.join(__dirname, 'client/build')))
-app.use(express.static('./public'))
+app.use(express.static(path.join(__dirname, 'client/build')))
+//app.use(express.static('./public'))
 app.use(morgan('short'))
 
 app.get("/", (req, res) => {

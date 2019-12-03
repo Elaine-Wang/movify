@@ -8,27 +8,14 @@ router.post('/movie_create', (req, res) => {
     console.log("Trying to create a new movie...")
 
     console.log("movie_title: " + req.body.create_movie_title)
-    const movie_title = req.body.create_movie_title
-    const movie_imdb_link = req.body.create_movie_imdb_link
-    const director_name = req.body.create_director_name
-    const imdb_score = req.body.create_imdb_score
-    const actor_1_name = req.body.create_actor_1_name
-    const actor_2_name = req.body.create_actor_2_name
-    const actor_3_name = req.body.create_actor_3_name
-    const genres = req.body.create_genres
-    const duration = req.body.create_duration
-    const language = req.body.create_language
-    const plot_keywords = req.body.create_plot_keywords
-    const country = req.body.create_country
-    const budget = req.body.create_budget
-    const title_year = req.body.create_title_year
-    const gross = req.body.create_gross
-    const content_rating = req.body.create_content_rating
+    const title = req.body.create_movie_title
+    const original_language = req.body.create_original_language
+    const overview = req.body.create_overview
 
     const connection = getConnection()
 
-    const queryString = "INSERT INTO movies (movie_title, movie_imdb_link, director_name, imdb_score, actor_1_name, actor_2_name, actor_3_name, genres, duration, language, plot_keywords, country, budget, title_year, gross, content_rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-    connection.query(queryString, [movie_title, movie_imdb_link, director_name, imdb_score, actor_1_name, actor_2_name, actor_3_name, genres, duration, language, plot_keywords, country, budget, title_year, gross, content_rating], (err, results, fields) => {
+    const queryString = "INSERT INTO movies (title, original_language, overview) VALUES (?, ?, ?)"
+    connection.query(queryString, [title, original_language, overview], (err, results, fields) => {
         if (err) {
             console.log("Failed to insert new movie: " + err)
             res.sendStatus(500)
@@ -58,14 +45,14 @@ router.get("/movies", (req, res) => {
     })
 })
 
-router.get('/movie/:movie_title', (req, res) => {
-    console.log("Fetching movie with title: " + req.params.movie_title)
+router.get('/movie/:title', (req, res) => {
+    console.log("Fetching movie with title: " + req.params.title)
 
     const connection = getConnection()
 
-    const movieTitle = req.params.movie_title
-    const queryString = "SELECT * FROM movies WHERE movies.movie_title LIKE %?%"
-    connection.query(queryString, [movieTitle], (err, rows, fields) => {
+    const movieTitle = req.params.title
+    const queryString = "SELECT * FROM movies WHERE movies.title LIKE %?%"
+    connection.query(queryString, [title], (err, rows, fields) => {
         if (err) {
             console.log("Failed to query for movies: " + err)
             res.sendStatus(500)
@@ -81,29 +68,16 @@ router.get('/movie/:movie_title', (req, res) => {
 router.post('/movie_update', (req, res) => {
     console.log("Trying to update a movie...")
 
-    console.log("movie_title: " + req.body.update_orig_movie_title)
-    const new_movie_title = req.body.update_new_movie_title
-    const movie_imdb_link = req.body.update_movie_imdb_link
-    const director_name = req.body.update_director_name
-    const imdb_score = req.body.update_imdb_score
-    const actor_1_name = req.body.update_actor_1_name
-    const actor_2_name = req.body.update_actor_2_name
-    const actor_3_name = req.body.update_actor_3_name
-    const genres = req.body.update_genres
-    const duration = req.body.update_duration
-    const language = req.body.update_language
-    const plot_keywords = req.body.update_plot_keywords
-    const country = req.body.update_country
-    const budget = req.body.update_budget
-    const title_year = req.body.update_title_year
-    const gross = req.body.update_gross
-    const content_rating = req.body.update_content_rating
-    const orig_movie_title = req.body.update_orig_movie_title
+    console.log("movie_title: " + req.body.update_orig_title)
+    const orig_title = req.body.udpate_orig_title
+    const new_title = req.body.update_new_title
+    const original_language = req.body.update_original_language
+    const overview = req.body.update_overview
 
     const connection = getConnection()
 
-    const queryString = "UPDATE movies SET movie_title = ?, movie_imdb_link = ?, director_name = ?, imdb_score = ?, actor_1_name = ?, actor_2_name = ?, actor_3_name = ?, genres = ?, duration = ?, language = ?, plot_keywords = ?, country = ?, budget = ?, title_year = ?, gross = ?, content_rating = ? WHERE movies.movie_title = ?"
-    connection.query(queryString, [new_movie_title, movie_imdb_link, director_name, imdb_score, actor_1_name, actor_2_name, actor_3_name, genres, duration, language, plot_keywords, country, budget, title_year, gross, content_rating, orig_movie_title], (err, results, fields) => {
+    const queryString = "UPDATE movies SET title = ?, original_language = ?, overview = ? WHERE movies.title = ?"
+    connection.query(queryString, [new_title, original_language, overview, orig_title], (err, results, fields) => {
         if (err) {
             console.log("Failed to update movie: " + err)
             res.sendStatus(500)
@@ -120,13 +94,13 @@ router.post('/movie_update', (req, res) => {
 router.post('/movie_delete', (req, res) => {
     console.log("Trying to delete a movie...")
 
-    console.log("movie_title: " + req.body.delete_movie_title)
-    const movie_title = req.body.delete_movie_title
+    console.log("title: " + req.body.delete_title)
+    const title = req.body.delete_title
 
     const connection = getConnection()
 
-    const queryString = "DELETE FROM movies WHERE movies.movie_title = ?"
-    connection.query(queryString, [movie_title], (err, results, fields) => {
+    const queryString = "DELETE FROM movies WHERE movies.title = ?"
+    connection.query(queryString, [title], (err, results, fields) => {
         if (err) {
             console.log("Failed to delete movie: " + err)
             res.sendStatus(500)
