@@ -9,6 +9,13 @@ import Detail from './components/Detail/Detail.jsx';
 //require('./styles/main.scss');
 
 export default class Create extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+  }
+
   render() {
     return (
       <div className="nav">
