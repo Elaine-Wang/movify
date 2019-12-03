@@ -27,7 +27,7 @@ router.post('/movie_create', (req, res) => {
 
     const connection = getConnection()
 
-    const queryString = "INSERT INTO Movies (movie_title, movie_imdb_link, director_name, imdb_score, actor_1_name, actor_2_name, actor_3_name, genres, duration, language, plot_keywords, country, budget, title_year, gross, content_rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    const queryString = "INSERT INTO movies (movie_title, movie_imdb_link, director_name, imdb_score, actor_1_name, actor_2_name, actor_3_name, genres, duration, language, plot_keywords, country, budget, title_year, gross, content_rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     connection.query(queryString, [movie_title, movie_imdb_link, director_name, imdb_score, actor_1_name, actor_2_name, actor_3_name, genres, duration, language, plot_keywords, country, budget, title_year, gross, content_rating], (err, results, fields) => {
         if (err) {
             console.log("Failed to insert new movie: " + err)
@@ -45,15 +45,15 @@ router.post('/movie_create', (req, res) => {
 // READ
 router.get("/movies", (req, res) => {
     const connection = getConnection()
-    const queryString = "SELECT * FROM Movies"
+    const queryString = "SELECT * FROM movies"
     connection.query(queryString, (err, rows, fields) => {
         if (err) {
-            console.log("Failed to query for Movies: " + err)
+            console.log("Failed to query for movies: " + err)
             res.sendStatus(500)
             return
         }
 
-        console.log("Fetched Movies successfully")
+        console.log("Fetched movies successfully")
         res.json(rows)
     })
 })
@@ -64,15 +64,15 @@ router.get('/movie/:movie_title', (req, res) => {
     const connection = getConnection()
 
     const movieTitle = req.params.movie_title
-    const queryString = "SELECT * FROM Movies WHERE Movies.movie_title LIKE %?%"
+    const queryString = "SELECT * FROM movies WHERE movies.movie_title LIKE %?%"
     connection.query(queryString, [movieTitle], (err, rows, fields) => {
         if (err) {
-            console.log("Failed to query for Movies: " + err)
+            console.log("Failed to query for movies: " + err)
             res.sendStatus(500)
             return
         }
 
-        console.log("Fetched Movies successfully")
+        console.log("Fetched movies successfully")
         res.json(rows)
     })
 })
@@ -102,7 +102,7 @@ router.post('/movie_update', (req, res) => {
 
     const connection = getConnection()
 
-    const queryString = "UPDATE Movies SET movie_title = ?, movie_imdb_link = ?, director_name = ?, imdb_score = ?, actor_1_name = ?, actor_2_name = ?, actor_3_name = ?, genres = ?, duration = ?, language = ?, plot_keywords = ?, country = ?, budget = ?, title_year = ?, gross = ?, content_rating = ? WHERE Movies.movie_title = ?"
+    const queryString = "UPDATE movies SET movie_title = ?, movie_imdb_link = ?, director_name = ?, imdb_score = ?, actor_1_name = ?, actor_2_name = ?, actor_3_name = ?, genres = ?, duration = ?, language = ?, plot_keywords = ?, country = ?, budget = ?, title_year = ?, gross = ?, content_rating = ? WHERE movies.movie_title = ?"
     connection.query(queryString, [new_movie_title, movie_imdb_link, director_name, imdb_score, actor_1_name, actor_2_name, actor_3_name, genres, duration, language, plot_keywords, country, budget, title_year, gross, content_rating, orig_movie_title], (err, results, fields) => {
         if (err) {
             console.log("Failed to update movie: " + err)
@@ -125,7 +125,7 @@ router.post('/movie_delete', (req, res) => {
 
     const connection = getConnection()
 
-    const queryString = "DELETE FROM Movies WHERE Movies.movie_title = ?"
+    const queryString = "DELETE FROM movies WHERE movies.movie_title = ?"
     connection.query(queryString, [movie_title], (err, results, fields) => {
         if (err) {
             console.log("Failed to delete movie: " + err)
