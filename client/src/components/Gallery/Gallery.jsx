@@ -24,13 +24,14 @@ class Gallery extends Component {
   }
 
   loadGallery() {
-    var url = "https://aqueous-retreat-92283.herokuapp.com/movies"
+    var url = "https://aqueous-retreat-92283.herokuapp.com/movies#/"
     axios.get(url)
       .then(function(response) {
           this.setState({
               resultsList: response.data,
           });
       }.bind(this),);
+      console.log(this.state.resultsList)
   }
 
   filterGenre(e) {
