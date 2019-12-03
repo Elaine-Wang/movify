@@ -90,11 +90,11 @@ router.get('/gallery/:genre', (req, res) => {
 router.post('/movie_update', (req, res) => {
     console.log("Trying to update a movie...")
 
-    console.log("movie_title: " + req.body.update_orig_title)
-    const orig_title = req.body.udpate_orig_title
-    const new_title = req.body.update_new_title
-    const original_language = req.body.update_original_language
-    const overview = req.body.update_overview
+    console.log("movie_title: " + req.body.orig_title)
+    const orig_title = req.body.orig_title
+    const new_title = req.body.new_title
+    const original_language = req.body.original_language
+    const overview = req.body.overview
 
     const connection = getConnection()
 
@@ -116,8 +116,8 @@ router.post('/movie_update', (req, res) => {
 router.post('/movie_delete', (req, res) => {
     console.log("Trying to delete a movie...")
 
-    console.log("title: " + req.body.delete_title)
-    const title = req.body.delete_title
+    console.log("title: " + req.body.title)
+    const title = req.body.title
 
     const connection = getConnection()
 

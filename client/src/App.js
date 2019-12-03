@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 import Home from './components/Home/Home.jsx';
 import Gallery from './components/Gallery/Gallery.jsx';
 import Detail from './components/Detail/Detail.jsx';
-import Create from './components/Create/Create.js/index.js';
+import Create from './components/Create/Create.jsx';
 
 require('./styles/main.scss');
 
