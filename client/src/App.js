@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
 // import 'semantic-ui-css/semantic.min.css';
 
 // import Home from './components/Home/Home.jsx';
