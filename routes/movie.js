@@ -23,10 +23,10 @@ router.post('/movie_create', (req, res) => {
         }
 
         console.log("Inserted a new movie with id: ", results.insertId)
-        res.send()
+        res.end()
     })
 
-    res.send()
+    res.end()
 })
 
 // READ
