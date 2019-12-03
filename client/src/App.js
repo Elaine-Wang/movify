@@ -12,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="nav">
+        <h1>HELLO</h1>
         <Router>
           <div>
             <h1><Link to="/" className="links">MOVIES</Link> </h1>
