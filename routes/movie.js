@@ -51,7 +51,7 @@ router.get('/movie/:title', (req, res) => {
     const connection = getConnection()
 
     const movieTitle = req.params.title
-    const queryString = "SELECT * FROM movies WHERE movies.title LIKE %?%"
+    const queryString = "SELECT * FROM movies WHERE movies.title LIKE \"%?%\""
     connection.query(queryString, [movieTitle], (err, rows, fields) => {
         if (err) {
             console.log("Failed to query for movies: " + err)
@@ -64,7 +64,7 @@ router.get('/movie/:title', (req, res) => {
     })
 })
 
-router.get('/movie/:genre', (req, res) => {
+router.get('/gallery/:genre', (req, res) => {
     console.log("Fetching movie with genre: " + req.params.genre_ids0)
 
     const connection = getConnection()
