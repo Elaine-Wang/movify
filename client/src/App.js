@@ -69,27 +69,17 @@ export default class App extends Component {
       .then(users => this.setState({ users }));
   }
 
-  handleCreate(event) {
-    event.preventDefault()
+  handleCreate(e) {
+    e.preventDefault();
     var data = {
       title: this.state.title,
       original_language: this.state.original_language,
       overview: this.state.overview
     }
-    fetch("/movie_create", {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function (response) {
-      if (response.status >= 400) {
-        throw new Error("Bad response from server");
-      }
-      return response.json();
-    }).then(function (data) {
-      console.log(data)
-    }).catch(function (err) {
-      console.log(err)
-    });
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/movie_create';
+    axios.post(url, data)
+      .then(response => console.log(response))
+      .catch(e => console.log(e))
   }
 
   handleChange(e) {
