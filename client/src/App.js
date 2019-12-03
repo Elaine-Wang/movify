@@ -19,7 +19,7 @@ export default class App extends Component {
             <h2>
               <Link to="/" className="links">SEARCH</Link>
               <Link to="/gallery" className="links">GALLERY</Link>
-              <Link to="/create" className="links">CREATE</Link>
+              <Link to="/create" className="links">CRUD</Link>
             </h2>
           </div>
         </Router>
