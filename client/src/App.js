@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react'
 
-export default class Registration extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,7 +19,7 @@ export default class Registration extends Component {
       original_language: this.state.original_language,
       overview: this.state.overview
     }
-    fetch("/users/new", {
+    fetch("/movie_create", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -30,9 +30,6 @@ export default class Registration extends Component {
       return response.json();
     }).then(function (data) {
       console.log(data)
-      if (data == "success") {
-        this.setState({ msg: "Thanks for registering" });
-      }
     }).catch(function (err) {
       console.log(err)
     });
