@@ -8,7 +8,7 @@ import Detail from './components/Detail/Detail.jsx';
 
 //require('./styles/main.scss');
 
-export default class App extends Component {
+export default class Create extends Component {
   render() {
     return (
       <div className="nav">
