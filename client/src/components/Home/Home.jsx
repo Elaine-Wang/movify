@@ -200,10 +200,10 @@ class Home extends Component {
                <div className="searchBar">
                 <Form>
                    <Form.Field>
-                     <input type='text' onChange={e => this.handleChange(e)} placeholder='movie'/>
+                     <input type='text' onChange={e => this.handleChange(e)} placeholder='Movie'/>
                    </Form.Field>
                   </Form>
-                  <Dropdown placeholder='filter by' fluid search selection options={options} selection value={currentSort} onChange={this.filterResults.bind(this)}/>
+                  <Dropdown placeholder='Filter by' fluid search selection options={options} selection value={currentSort} onChange={this.filterResults.bind(this)}/>
                   <Button.Group fluid>
                     <Button className="mybutton" value="false" onClick={this.selectOrder.bind(this)}>descending</Button>
                     <Button className="mybutton" value="true" onClick={this.selectOrder.bind(this)}>ascending</Button>
