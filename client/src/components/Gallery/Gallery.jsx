@@ -35,12 +35,14 @@ class Gallery extends Component {
   }
 
   filterGenre(e) {
-    var filterType = e.target.id;
-    var currentPage = this.state.page;
-    this.setState({
-      genre: filterType,
-      page: '1',
-    }, () => this.loadGallery());
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/movies/' + e.target.id
+    axios.get(url)
+      .then(function(response) {
+          this.setState({
+              resultsList: response.data,
+          });
+      }.bind(this),);
+      console.log(this.state.resultsList)
   }
 
   nextPage(e) {

@@ -52,7 +52,7 @@ router.get('/movie/:title', (req, res) => {
 
     const movieTitle = req.params.title
     const queryString = "SELECT * FROM movies WHERE movies.title LIKE %?%"
-    connection.query(queryString, [title], (err, rows, fields) => {
+    connection.query(queryString, [movieTitle], (err, rows, fields) => {
         if (err) {
             console.log("Failed to query for movies: " + err)
             res.sendStatus(500)
@@ -60,6 +60,25 @@ router.get('/movie/:title', (req, res) => {
         }
 
         console.log("Fetched movies successfully")
+        res.json(rows)
+    })
+})
+
+router.get('/movie/:genre', (req, res) => {
+    console.log("Fetching movie with genre: " + req.params.genre_ids0)
+
+    const connection = getConnection()
+
+    const movieGenre = req.params.genre_ids0
+    const queryString = "SELECT * FROM movies WHERE movies.genre_ids0 = ?"
+    connection.query(queryString, [movieGenre], (err, rows, fields) => {
+        if (err) {
+            console.log("Failed to query for movie genres: " + err)
+            res.sendStatus(500)
+            return
+        }
+
+        console.log("Fetched movie genres successfully")
         res.json(rows)
     })
 })
