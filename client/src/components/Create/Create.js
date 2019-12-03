@@ -48,6 +48,8 @@ export default class Create extends Component {
             <Form.Input placeholder='Overview' name="overview" onChange={this.handleChange}></Form.Input>
             <Form.Button>Create</Form.Button>
           </Form>
+
+          
         </div>
       </div>
     );

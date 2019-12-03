@@ -25,6 +25,7 @@ input {
 
   .links {
     color: white;
+    padding: 0 10px;
   }
 
   .links:focus {
@@ -42,7 +43,7 @@ input {
     font-size: 1em;
     display: inline;
     color:white;
-    word-spacing: 30px;
+    word-spacing: 10px;
   }
 
   a:hover {
