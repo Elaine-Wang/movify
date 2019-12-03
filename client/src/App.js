@@ -72,7 +72,7 @@ export default class App extends Component {
   handleCreate(event) {
     event.preventDefault()
     var data = {
-      title: this.state.title,
+      title: "this.state.title",
       original_language: this.state.original_language,
       overview: this.state.overview
     }
