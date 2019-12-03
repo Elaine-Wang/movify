@@ -6,6 +6,9 @@ import Home from './components/Home/Home.jsx';
 import Gallery from './components/Gallery/Gallery.jsx';
 import Detail from './components/Detail/Detail.jsx';
 
+import { Form } from 'semantic-ui-react'
+import axios from 'axios'
+
 require('./styles/main.scss');
 
 class App extends Component {
