@@ -31,18 +31,17 @@ class Gallery extends Component {
               resultsList: response.data,
           });
       }.bind(this),);
-      console.log(this.state.resultsList)
   }
 
   filterGenre(e) {
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/gallery/' + e.target.id
+    console.log(e.target.id)
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/gallery/' + e.target.id + '/#/'
     axios.get(url)
       .then(function(response) {
           this.setState({
               resultsList: response.data,
           });
       }.bind(this),);
-      console.log(this.state.resultsList)
   }
 
   nextPage(e) {
