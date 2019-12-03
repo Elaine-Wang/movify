@@ -42,7 +42,7 @@ export default class Create extends Component {
             <Form.Button>Create</Form.Button>
           </Form>
 
-          <Divider vertical><Icon inverted circular name="video" /></Divider>
+          <Divider horizontal><Icon inverted circular name="video" /></Divider>
 
           <Form onSubmit={this.handleBasic2} method="POST">
             <h2>WHAT THIS QUERY DOES</h2>
