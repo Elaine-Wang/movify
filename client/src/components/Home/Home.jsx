@@ -31,7 +31,7 @@ class Home extends Component {
   //MOVIE SEARCH
 
   handleChange(e) {
-    var url = "https://aqueous-retreat-92283.herokuapp.com/movies#/"
+    var url = "https://aqueous-retreat-92283.herokuapp.com/movies/" + e.target.value
     axios.get(url)
       .then(function (response) {
         this.setState(function() {
