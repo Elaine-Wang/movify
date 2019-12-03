@@ -7,7 +7,7 @@ const router = express.Router()
 router.post('/movie_create', (req, res) => {
     console.log("Trying to create a new movie...")
 
-    console.log("movie_title: " + req.body.title)
+    console.log("title: " + req.body.title)
     const title = req.body.title
     const original_language = req.body.original_language
     const overview = req.body.overview
@@ -23,10 +23,10 @@ router.post('/movie_create', (req, res) => {
         }
 
         console.log("Inserted a new movie with id: ", results.insertId)
-        res.send()
+        res.send(JSON.stringify(results))
     })
 
-    res.send()
+    res.send(JSON.stringify(results))
 })
 
 // READ
