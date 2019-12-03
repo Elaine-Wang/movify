@@ -13,7 +13,7 @@ export default class App extends Component {
     return (
       <div className="nav">
         <h1>HELLO</h1>
-        <Router>
+        {/* <Router>
           <div>
             <h1><Link to="/" className="links">MOVIES</Link> </h1>
             <h2><Link to="/" className="links">SEARCH</Link> <Link to="/gallery" className="links">GALLERY</Link> </h2>
@@ -25,7 +25,7 @@ export default class App extends Component {
             <Route exact path='/gallery' component={Gallery} />,
             <Route exact path='/detail' component={Detail} />
           </Switch>
-        </Router>
+        </Router> */}
       </div>
     );
   }
