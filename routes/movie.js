@@ -143,7 +143,7 @@ router.post('/movie_delete', (req, res) => {
 const pool = mysql.createPool({
     connectionLimit: 10,
     host: 'us-cdbr-iron-east-05.cleardb.net',
-    movie: 'b04a078ee0777f',
+    user: 'b04a078ee0777f',
     password: '22fcc01e',
     database: 'heroku_de2493ad86ba222'
 })
