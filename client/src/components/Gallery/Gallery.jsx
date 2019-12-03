@@ -35,7 +35,7 @@ class Gallery extends Component {
 
   filterGenre(e) {
     console.log(e.target.id)
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/gallery/' + e.target.id + '/#/'
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/gallery/' + e.target.id
     axios.get(url)
       .then(function(response) {
           this.setState({

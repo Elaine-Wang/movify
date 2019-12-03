@@ -65,11 +65,11 @@ router.get('/movie/:title', (req, res) => {
 })
 
 router.get('/gallery/:genre', (req, res) => {
-    console.log("Fetching movie with genre: " + req.params.genre_ids0)
+    console.log("Fetching movie with genre: " + req.params.genre)
 
     const connection = getConnection()
 
-    const movieGenre = req.params.genre_ids0
+    const movieGenre = req.params.genre
     console.log(movieGenre)
     const queryString = "SELECT * FROM movies WHERE movies.genre_ids0 = ?"
     console.log(queryString)
