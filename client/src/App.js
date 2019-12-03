@@ -9,7 +9,7 @@ import Detail from './components/Detail/Detail.jsx';
 import { Form } from 'semantic-ui-react'
 import axios from 'axios'
 
-require('./styles/main.scss');
+//require('./styles/main.scss');
 
 class App extends Component {
   // render() {
