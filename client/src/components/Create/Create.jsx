@@ -77,7 +77,7 @@ export default class Create extends Component {
             <Form.Input placeholder='Title' name="title" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Language' name="original_language" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Overview' name="overview" onChange={this.handleChange}></Form.Input>
-            <Form.Button className="mybutton">Create</Form.Button>
+            <Form.Button>Create</Form.Button>
           </Form>
 
           <Divider horizontal><Icon circular name="video" /></Divider>
@@ -87,14 +87,14 @@ export default class Create extends Component {
             <Form.Input placeholder='New title' name="new_title" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Language' name="original_language" onChange={this.handleChange}></Form.Input>
             <Form.Input placeholder='Overview' name="overview" onChange={this.handleChange}></Form.Input>
-            <Form.Button className="mybutton">Update</Form.Button>
+            <Form.Button>Update</Form.Button>
           </Form>
 
           <Divider horizontal><Icon circular name="video" /></Divider>
 
           <Form onSubmit={this.handleDelete} method="POST">
             <Form.Input placeholder='Title' name="title" onChange={this.handleChange}></Form.Input>
-            <Form.Button className="mybutton">Delete</Form.Button>
+            <Form.Button>Delete</Form.Button>
           </Form>
         </div>
       </div>
