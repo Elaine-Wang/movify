@@ -69,7 +69,7 @@ export default class App extends Component {
       .then(users => this.setState({ users }));
   }
 
-  handleCreate(e) {
+  handleCreate(event) {
     event.preventDefault()
     var data = {
       title: this.state.title,
