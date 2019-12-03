@@ -44,22 +44,6 @@ class Gallery extends Component {
       }.bind(this),);
   }
 
-  nextPage(e) {
-    var currentPage = Number(this.state.page);
-    this.setState({
-      page: (currentPage + 1).toString(),
-    }, () => this.loadMore());
-  }
-
-  loadMore() {
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=14efa05d15268965b34816286e0035bd&language=en-US&with_genres=${this.state.genre}&sort_by=popularity.desc&include_adult=true&include_video=true&page=${this.state.page}`)
-    .then(function(response) {
-      this.setState({
-        resultsList: this.state.resultsList.concat(response.data.results),
-      });
-    }.bind(this));
-  }
-
   pushToDetail(index) {
     this.props.history.push ({
       pathname: '/detail',
@@ -76,7 +60,7 @@ class Gallery extends Component {
     return(
       <div className="Gallery">
         <Divider hidden/><Divider hidden/>
-        <Button className="mybutton" id={this.props.genre} onClick={this.filterGenre}>All</Button>
+        <Button className="mybutton" id={this.props.genre} onClick={this.loadGallery}>All</Button>
         <Button id="28" className="mybutton" onClick={this.filterGenre}>Action</Button>
         <Button id="12" className="mybutton" onClick={this.filterGenre}>Adventure</Button>
         <Button id="16" className="mybutton" onClick={this.filterGenre}>Animation</Button>
@@ -106,7 +90,6 @@ class Gallery extends Component {
         }
         </Card.Group>
         <Divider hidden/>
-        <Button className="mybutton" onClick={this.nextPage}>LOAD MORE</Button>
         </div>
     )
   }

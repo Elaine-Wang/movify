@@ -31,11 +31,12 @@ class Home extends Component {
   //MOVIE SEARCH
 
   handleChange(e) {
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=14efa05d15268965b34816286e0035bd&query=' + e.target.value + '&include_adult=true')
+    var url = "https://aqueous-retreat-92283.herokuapp.com/movies#/"
+    axios.get(url)
       .then(function (response) {
         this.setState(function() {
           return {
-            resultsList: response.data.results,
+            resultsList: response.data,
           }
         });
       }.bind(this));
