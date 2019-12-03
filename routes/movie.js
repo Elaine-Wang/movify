@@ -7,10 +7,10 @@ const router = express.Router()
 router.post('/movie_create', (req, res) => {
     console.log("Trying to create a new movie...")
 
-    console.log("movie_title: " + req.body.create_movie_title)
-    const title = req.body.create_movie_title
-    const original_language = req.body.create_original_language
-    const overview = req.body.create_overview
+    console.log("movie_title: " + req.body.title)
+    const title = req.body.title
+    const original_language = req.body.original_language
+    const overview = req.body.overview
 
     const connection = getConnection()
 
@@ -23,10 +23,10 @@ router.post('/movie_create', (req, res) => {
         }
 
         console.log("Inserted a new movie with id: ", results.insertId)
-        res.end()
+        res.send()
     })
 
-    res.end()
+    res.send()
 })
 
 // READ
