@@ -60,6 +60,7 @@ export default class App extends Component {
       users: []
     }
     this.handleCreate = this.handleCreate.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -81,8 +82,9 @@ export default class App extends Component {
       .catch(e => console.log(e))
   }
 
-  handleChange = (e) => this.setState({[e.target.name]: e.target.value})
-
+  handleChange(e) {
+    this.setState({ [e.target.name] : e.target.value });
+ }
   render() {
     return (
       <div className="App">
