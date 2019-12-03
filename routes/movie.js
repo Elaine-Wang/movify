@@ -70,7 +70,9 @@ router.get('/gallery/:genre', (req, res) => {
     const connection = getConnection()
 
     const movieGenre = req.params.genre_ids0
+    console.log(movieGenre)
     const queryString = "SELECT * FROM movies WHERE movies.genre_ids0 = ?"
+    console.log(queryString)
     connection.query(queryString, [movieGenre], (err, rows, fields) => {
         if (err) {
             console.log("Failed to query for movie genres: " + err)
