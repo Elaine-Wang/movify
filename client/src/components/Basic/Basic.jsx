@@ -36,7 +36,7 @@ export default class Create extends Component {
           <div key={user.id}>{user.username}</div>
         )} */}
 
-        <div className="centerMeBasic">
+        <div className="centerMe">
           <Form onSubmit={this.handleBasic1} method="POST">
             <h2>WHAT THIS QUERY DOES</h2>
             <Form.Button>Create</Form.Button>
