@@ -11,7 +11,7 @@ require('./styles/main.scss');
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="nav">
         <Router>
           <div>
             <h1><Link to="/" className="links">MOVIES</Link> </h1>

@@ -24,10 +24,11 @@ class Gallery extends Component {
   }
 
   loadGallery() {
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=14efa05d15268965b34816286e0035bd&language=en-US&with_genres=${this.state.genre}&sort_by=popularity.desc&include_adult=true&include_video=true&page=${this.state.page}`)
+    var url = "https://aqueous-retreat-92283.herokuapp.com/movies"
+    axios.get(url)
       .then(function(response) {
           this.setState({
-              resultsList: response.data.results,
+              resultsList: response.data,
           });
       }.bind(this),);
   }
