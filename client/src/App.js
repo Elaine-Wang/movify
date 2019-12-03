@@ -19,7 +19,7 @@ export default class App extends Component {
       original_language: this.state.original_language,
       overview: this.state.overview
     }
-    fetch("/movie/movie_create", {
+    fetch("/movie_create", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
