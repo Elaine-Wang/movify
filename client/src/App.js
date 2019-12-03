@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import 'semantic-ui-css/semantic.min.css';
+// import 'semantic-ui-css/semantic.min.css';
 
 import Home from './components/Home/Home.jsx';
 import Gallery from './components/Gallery/Gallery.jsx';
@@ -8,7 +8,7 @@ import Detail from './components/Detail/Detail.jsx';
 
 //require('./styles/main.scss');
 
-export default class Create extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
   }
@@ -18,7 +18,7 @@ export default class Create extends Component {
 
   render() {
     return (
-      <div className="nav">
+      <div>
         <h1>HELLO</h1>
         {/* <Router>
           <div>
