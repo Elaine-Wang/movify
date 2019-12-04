@@ -57,7 +57,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
     })
 })
 
-router.get('/trend_get', (req, res) => {
+app.get('/trend_get', (req, res) => {
     // console.log("TREND DB", db)
 
     var mapFunc = function () {
