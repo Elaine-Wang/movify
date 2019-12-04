@@ -29,9 +29,9 @@ class Home extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.location)
+    console.log(this.props.history.location)
     console.log(this.props.location.state)
-    const { username } = this.props.location.state
+    const { username } = this.props.history.location.state
   }
 
   //MOVIE SEARCH
