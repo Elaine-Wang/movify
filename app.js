@@ -43,9 +43,13 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", fu
     }
 
     // Save database object from the callback for reuse.
-    db = client.db();
-    console.log("Database connection ready");
 
+    let db = mongoose.connection;
+
+    db.once('open', () => console.log('connected to the database'));
+
+    // checks if connection with the database is successful
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
     // const PORT = process.env.PORT || 3003
     // app.listen(PORT, () => {
     //     console.log("Server is up and listening on: " + PORT)
