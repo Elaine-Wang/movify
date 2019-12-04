@@ -3,8 +3,6 @@ const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
 const path = require('path');
-//var mongodb = require("mongodb");
-//var ObjectID = mongodb.ObjectID;
 const mongoose = require('mongoose');
 
 
@@ -13,7 +11,6 @@ const bodyParser = require('body-parser')
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'client/build')))
-//app.use(express.static('./public')) honk
 app.use(morgan('short'))
 
 app.get("/", (req, res) => {

@@ -1,6 +1,6 @@
 // contains all movie related routes
 const express = require("express")
-import db from '../app.js'
+const db = require('../app.js')
 const router = express.Router()
 
 router.get('/trend_get', (req, res) => {
