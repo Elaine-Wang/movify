@@ -73,8 +73,8 @@ export default class Create extends Component {
 
         <div className="centerMeBasic">
           <Form onSubmit={this.handleBasic1} method="GET">
-            <h2 className="basicQuery">Languages with the most movies nominated for an Oscar</h2>
-            <Form.Button>Search</Form.Button>
+            <h2 className="basicQuery">Languages with the most movies nominated for an Oscar for Best Motion Picture</h2>
+            <Form.Button className="basicButton">Search</Form.Button>
             <ul>
               {this.state.languages.map(language =>
                 <li key={language.id}>{language.original_language}</li>
@@ -85,8 +85,8 @@ export default class Create extends Component {
           {/* <Divider horizontal><Icon inverted circular name="video" /></Divider> */}
 
           <Form onSubmit={this.handleBasic2} method="GET">
-            <h2 className="basicQuery">Genres with the most movies that won an Oscar</h2>
-            <Form.Button>Search</Form.Button>
+            <h2 className="basicQuery">Genres with the most movies that won an Oscar for Best Motion Picture or Outstanding Picture</h2>
+            <Form.Button className="basicButton">Search</Form.Button>
             <ul>
               {this.state.genres.map(genre =>
                 <li key={genre.id}>{this.state.dict[genre.genre_ids0]}</li>
