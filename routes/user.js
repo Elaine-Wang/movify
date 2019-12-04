@@ -7,12 +7,13 @@ const router = express.Router()
 router.post('/user_like', (req, res) => {
     const username = req.body.username
     const title = req.body.title
+    const id = req.body.id
     const genre = req.body.genre
 
     const connection = getConnection()
 
-    const queryString = "INSERT IGNORE INTO users (username, title, genre) VALUES (?, ?, ?)"
-    connection.query(queryString, [username, title, genre], (err, results, fields) => {
+    const queryString = "INSERT IGNORE INTO users (username, title, id, genre) VALUES (?, ?, ?, ?)"
+    connection.query(queryString, [username, title, id, genre], (err, results, fields) => {
         if (err) {
             console.log("Failed to like a movie: " + err)
             res.sendStatus(500)
@@ -65,12 +66,12 @@ router.post('/user_like', (req, res) => {
 // DELETE
 router.post('/user_dislike', (req, res) => {
     const username = req.body.username
-    const title = req.body.title
+    const id = req.body.id
 
     const connection = getConnection()
 
-    const queryString = "DELETE FROM users WHERE users.username = ? AND users.title = ?"
-    connection.query(queryString, [username, title], (err, results, fields) => {
+    const queryString = "DELETE FROM users WHERE users.username = ? AND users.id = ?"
+    connection.query(queryString, [username, id], (err, results, fields) => {
         if (err) {
             console.log("Failed to dislike a movie: " + err)
             res.sendStatus(500)

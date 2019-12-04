@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { render } from 'react-dom';
-import { Dropdown, Form, Divider, Button, Input, Image, Label, Card } from 'semantic-ui-react'
+import { Dropdown, Form, Divider, Button, Input, Image, Label, Card, Icon } from 'semantic-ui-react'
 
 import styles from './Home.scss'
 
@@ -26,6 +26,9 @@ class Home extends Component {
     this.pushToDetail = this.pushToDetail.bind(this);
     this.ascendingSort = this.ascendingSort.bind(this);
     this.descendingSort = this.descendingSort.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLike = this.handleLike.bind(this);
+    this.handleDislike = this.handleDislike.bind(this);
   }
 
   //MOVIE SEARCH
@@ -191,6 +194,32 @@ class Home extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  handleLike(e, data) {
+    e.preventDefault();
+      var data = {
+        username: this.state.username,
+        title: data.title,
+        id: data.id,
+        genre: data.genre_ids0
+    }
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/user_like';
+    axios.post(url, data)
+      .then(response => console.log(response))
+      .catch(e => console.log(e))
+  }
+
+  handleDislike(e, data) {
+    e.preventDefault();
+      var data = {
+        username: this.state.username,
+        id: data.id,
+    }
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/user_dislike';
+    axios.post(url, data)
+      .then(response => console.log(response))
+      .catch(e => console.log(e))
+  }
+
   render() {
 
     const { currentSort } = this.state
@@ -223,6 +252,14 @@ class Home extends Component {
                 <Image className="centerMe" onClick={function () { this.pushToDetail(index) }.bind(this)} src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} key={index + "image"} />
                 <Card.Content key={index + "title"}>
                   {movie.title}
+                </Card.Content>
+                <Card.Content extra key={index + "like"}>
+                  <Button className="mybutton" value={movie} onClick={this.handleLike}>
+                    <Icon name='thumbs up'/>
+                  </Button>
+                  <Button className="mybutton" value={movie} onClick={this.handleDislike}>
+                    <Icon name='thumbs down'/>
+                  </Button>
                 </Card.Content>
                 <Card.Content extra key={index + "rating"}>
                   Rating: {movie.vote_average}
