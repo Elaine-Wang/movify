@@ -20,7 +20,7 @@ export default class Create extends Component {
   handleBasic1(e) {
     e.preventDefault();
     var url = 'https://aqueous-retreat-92283.herokuapp.com/basic1';
-    axios.post(url)
+    axios.get(url)
       .then(response => response.json())
       .then(languages => this.setState({ languages }))
       .catch(e => console.log(e))
@@ -29,7 +29,7 @@ export default class Create extends Component {
   handleBasic2(e) {
     e.preventDefault();
     var url = 'https://aqueous-retreat-92283.herokuapp.com/basic2';
-    axios.post(url)
+    axios.get(url)
       .then(response => response.json())
       .then(genres => this.setState({ genres }))
       .catch(e => console.log(e))
