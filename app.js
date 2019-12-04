@@ -35,26 +35,21 @@ app.use(trends)
 
 var db;
 
+const dbRoute = 'mongodb://heroku_nmhhktbj:h62h6n86lhb84iokc6qapdknik@ds351628.mlab.com:51628/heroku_nmhhktbj';
+
 // Connect to the database before starting the application server.
-mongoose.connect(process.env.MONGODB_URI, function (err, client) {
+mongoose.connect(dbRoute, function (err, client) {
     if (err) {
         console.log(err);
         process.exit(1);
     }
 
-    // Save database object from the callback for reuse.
-
-    let db = mongoose.connection;
-
-    // db.once('open', () => console.log('connected to the database'));
-
     // // checks if connection with the database is successful
     // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-    // const PORT = process.env.PORT || 3003
-    // app.listen(PORT, () => {
-    //     console.log("Server is up and listening on: " + PORT)
-    // })
 });
+
+let db = mongoose.connection;
+db.once('open', () => console.log('connected to the database'));
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => {
