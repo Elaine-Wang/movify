@@ -9,9 +9,8 @@ router.get('/trend_get', (req, res) => {
             console.log(err);
             process.exit(1);
         }
-    
-       let db = mongoose.connection;
     });
+    let db = mongoose.connection;
 
     var mapFunc = function () {
         for (var idx1 = 0; idx1 < this.keywords.length; idx1++) {
