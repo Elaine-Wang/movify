@@ -15,10 +15,8 @@ router.get('/log_get', (req, res) => {
         }
 
         console.log("Got log: ", results.insertId)
-        res.send()
+        res.json(results)
     })
-
-    res.send()
 })
 
 const pool = mysql.createPool({
