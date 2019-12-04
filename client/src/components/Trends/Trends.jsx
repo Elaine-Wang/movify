@@ -36,8 +36,8 @@ export default class Trends extends Component {
             <Form.Button className="buttonBasic">Get Trends</Form.Button>
             <ul>
               {this.state.trends.map(trend =>
-                <li key={trend.id}>
-                    {trend.id}, {trend.keywordPair}
+                <li key={trend._id}>
+                    {trend._id}: {trend.value}
                 </li>
               )}
             </ul>
