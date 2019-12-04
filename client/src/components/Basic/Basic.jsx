@@ -7,6 +7,11 @@ import styles from './Basic.scss'
 export default class Create extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      languages: [],
+      genres: []
+    }
   }
 
   componentDidMount() {
@@ -16,15 +21,17 @@ export default class Create extends Component {
     e.preventDefault();
     var url = 'https://aqueous-retreat-92283.herokuapp.com/basic1';
     axios.post(url)
-      .then(response => console.log(response))
+      .then(response => response.json())
+      .then(languages => this.setState({ languages }))
       .catch(e => console.log(e))
   }
 
   handleBasic2(e) {
     e.preventDefault();
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/basic1';
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/basic2';
     axios.post(url)
-      .then(response => console.log(response))
+      .then(response => response.json())
+      .then(genres => this.setState({ genres }))
       .catch(e => console.log(e))
   }
 
@@ -38,15 +45,24 @@ export default class Create extends Component {
 
         <div className="centerMe">
           <Form onSubmit={this.handleBasic1} method="POST">
-            <h2>WHAT THIS QUERY DOES</h2>
-            <Form.Button>Create</Form.Button>
+            <h2 className="basicQuery">Languages with the most movies nominated for an Oscar</h2>
+            <Form.Button>Create</Form.Button><ul>
+              {this.state.languages.map(language =>
+                <li>{language}</li>
+              )}
+            </ul>
           </Form>
 
           <Divider horizontal><Icon inverted circular name="video" /></Divider>
 
           <Form onSubmit={this.handleBasic2} method="POST">
-            <h2>WHAT THIS QUERY DOES</h2>
+            <h2 className="basicQuery">Genres with the most movies that won an Oscar</h2>
             <Form.Button>Update</Form.Button>
+            <ul>
+              {this.state.genres.map(genre =>
+                <li>{genre}</li>
+              )}
+            </ul>
           </Form>
         </div>
       </div>

@@ -74,7 +74,7 @@ router.get('/gallery/:genre', (req, res) => {
     console.log(movieGenre)
     const queryString = "SELECT * FROM movies WHERE movies.genre_ids0 = ? OR movies.genre_ids1 = ? OR movies.genre_ids2 = ? OR movies.genre_ids3 = ? OR movies.genre_ids4 = ? OR movies.genre_ids5 = ? OR movies.genre_ids6 = ? OR movies.genre_ids7 = ? OR movies.genre_ids8 = ?"
     console.log(queryString)
-    connection.query(queryString, [movieGenre, movieGenre, movieGenre, movieGenre, movieGenre, movieGenre], (err, rows, fields) => {
+    connection.query(queryString, [movieGenre, movieGenre, movieGenre, movieGenre, movieGenre, movieGenre, movieGenre, movieGenre, movieGenre], (err, rows, fields) => {
         if (err) {
             console.log("Failed to query for movie genres: " + err)
             res.sendStatus(500)
@@ -130,6 +130,44 @@ router.post('/movie_delete', (req, res) => {
         }
 
         console.log("Deleted a movie with id: ", results.deleteId)
+        res.end()
+    })
+
+    res.end()
+})
+
+// BASIC QUERY 1
+router.get('/basic1', (req, res) => {
+    const connection = getConnection()
+
+    const queryString = "SELECT M.original_language FROM Movies M JOIN Awards A ON M.title = A.entity WHERE A.category = \"BEST MOTION PICTURE\" GROUP BY M.original_language ORDER BY COUNT(M.original_language) DESC"
+    connection.query(queryString, (err, results, fields) => {
+        if (err) {
+            console.log("Failed to execute basic query 1: " + err)
+            res.sendStatus(500)
+            return
+        }
+
+        console.log("Successfully executed basic query 1")
+        res.end()
+    })
+
+    res.end()
+})
+
+// BASIC QUERY 2
+router.get('/basic2', (req, res) => {
+    const connection = getConnection()
+
+    const queryString = "SELECT M.genre_ids0 FROM Movies M JOIN Awards A ON M.title = A.entity WHERE A.category = \"BEST MOTION PICTURE\" AND WINNER = \"TRUE\" UNION SELECT M.genre_ids0 FROM Movies M JOIN Awards A ON M.title = A.entity WHERE A.category = \"OUTSTANDING PICTURE\" AND WINNER = \"TRUE\""
+    connection.query(queryString, (err, results, fields) => {
+        if (err) {
+            console.log("Failed to execute basic query 2: " + err)
+            res.sendStatus(500)
+            return
+        }
+
+        console.log("Successfully executed basic query 2")
         res.end()
     })
 
