@@ -37,8 +37,7 @@ export default class Trends extends Component {
             <ul>
               {this.state.trends.map(trend =>
                 <li key={trend.id}>
-                    {trend.id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {trend.keywordPair}
+                    {trend.id}, {trend.keywordPair}
                 </li>
               )}
             </ul>
