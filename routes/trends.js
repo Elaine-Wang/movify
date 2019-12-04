@@ -1,6 +1,6 @@
 // contains all movie related routes
 const express = require("express")
-// var mongodb = require("mongodb")
+var mongodb = require("mongodb")
 const router = express.Router()
 
 router.get('/trend_get', (req, res) => {
