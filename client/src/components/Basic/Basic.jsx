@@ -12,6 +12,9 @@ export default class Create extends Component {
       languages: [],
       genres: []
     }
+
+    this.handleBasic1 = this.handleBasic1.bind(this)
+    this.handleBasic2 = this.handleBasic2.bind(this)
   }
 
   componentDidMount() {
@@ -44,7 +47,7 @@ export default class Create extends Component {
         )} */}
 
         <div className="centerMeBasic">
-          <Form onSubmit={this.handleBasic1} method="POST">
+          <Form onSubmit={this.handleBasic1} method="GET">
             <h2 className="basicQuery">Languages with the most movies nominated for an Oscar</h2>
             <Form.Button>Search</Form.Button><ul>
               {this.state.languages.map(language =>
@@ -55,7 +58,7 @@ export default class Create extends Component {
 
           {/* <Divider horizontal><Icon inverted circular name="video" /></Divider> */}
 
-          <Form onSubmit={this.handleBasic2} method="POST">
+          <Form onSubmit={this.handleBasic2} method="GET">
             <h2 className="basicQuery">Genres with the most movies that won an Oscar</h2>
             <Form.Button>Search</Form.Button>
             <ul>
