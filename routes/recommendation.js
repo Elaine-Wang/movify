@@ -6,7 +6,7 @@ const router = express.Router()
 router.get('/rec_get', (req, res) => {
     const connection = getConnection()
 
-    const queryString = "EXEC recGood SELECT * FROM recommendations"
+    const queryString = "CALL recGood; SELECT * FROM recommendations"
     connection.query(queryString, (err, results, fields) => {
         if (err) {
             console.log("Failed to get recs: " + err)
