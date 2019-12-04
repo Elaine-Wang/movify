@@ -15,7 +15,8 @@ class Home extends Component {
       poster: null,
       resultsList: [],
       ascending: false,
-      currentSort: null
+      currentSort: null,
+      username: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.selectOrder = this.selectOrder.bind(this);
@@ -29,6 +30,19 @@ class Home extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleDislike = this.handleDislike.bind(this);
+  }
+
+  componentDidMount() {
+    var url = "https://aqueous-retreat-92283.herokuapp.com/movie/"
+    axios.get(url)
+      .then(function (response) {
+        this.setState(function () {
+          return {
+            username: '',
+            resultsList: response.data,
+          }
+        });
+      }.bind(this));
   }
 
   //MOVIE SEARCH
@@ -190,7 +204,6 @@ class Home extends Component {
   }
 
   handleLogin(e) {
-    console.log(e.target.value)
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -253,10 +266,10 @@ class Home extends Component {
                   {movie.title}
                 </Card.Content>
                 <Card.Content extra key={index + "like"}>
-                  <Button value={movie} onClick={this.handleLike.bind(this)}>
+                  <Button className="likebutton" value={movie} onClick={this.handleLike.bind(this)}>
                     <Icon name='thumbs up'/>
                   </Button>
-                  <Button value={movie} onClick={this.handleDislike.bind(this)}>
+                  <Button className="likebutton" value={movie} onClick={this.handleDislike.bind(this)}>
                     <Icon name='thumbs down'/>
                   </Button>
                 </Card.Content>
