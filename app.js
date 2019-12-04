@@ -23,7 +23,7 @@ const movies = require('./routes/movie.js')
 const users = require('./routes/user.js')
 const logs = require('./routes/log.js')
 const recommendations = require('./routes/recommendation.js')
-const recommendations = require('./routes/trends.js')
+const trends = require('./routes/trends.js')
 
 app.use(movies)
 app.use(users)
