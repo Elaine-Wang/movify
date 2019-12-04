@@ -190,7 +190,10 @@ class Home extends Component {
     const { currentSort } = this.state
     const { ascending } = this.state
     const { match, location, history } = this.props
-    const { username } = this.props.location.state
+    console.log(match)
+    console.log(location)
+    console.log(history)
+    const { username } = location.state
     console.log(username)
     const options = [
       { key: 'popularity', text: 'popularity', value: 'popularity' },
