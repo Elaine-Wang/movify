@@ -39,7 +39,7 @@ export default class Recommendations extends Component {
                 <li key={recommendation.id}>
                     {recommendation.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {recommendation.rec}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {recommendation.rank}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {recommendation.tier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </li>
               )}
             </ul>
