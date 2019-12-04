@@ -6,10 +6,7 @@ const router = express.Router()
 router.get('/rec_get', (req, res) => {
     const connection = getConnection()
 
-    connection.query("CALL recGood()")
-    connection.query("CALL recSim()")
-
-    const queryString = "SELECT * FROM recommendations"
+    const queryString = "CALL recGood(); CALL recSim(); SELECT * FROM recommendations"
     connection.query(queryString, (err, results, fields) => {
         if (err) {
             console.log("Failed to get recs: " + err)
@@ -27,7 +24,8 @@ const pool = mysql.createPool({
     host: 'us-mm-dca-648e9a121678.g5.cleardb.net',
     user: 'b04a078ee0777f',
     password: '22fcc01e',
-    database: 'heroku_de2493ad86ba222'
+    database: 'heroku_de2493ad86ba222',
+    multipleStatements: true
 })
 
 function getConnection() {
