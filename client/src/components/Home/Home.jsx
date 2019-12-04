@@ -29,6 +29,8 @@ class Home extends Component {
   }
 
   componentDidMount () {
+    console.log(this.props.location)
+    console.log(this.props.location.state)
     const { username } = this.props.location.state
   }
 

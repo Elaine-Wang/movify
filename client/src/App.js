@@ -15,7 +15,7 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '',
+      username: 'user',
     }
     this.handleChange = this.handleChange.bind(this)
   }
