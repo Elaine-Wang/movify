@@ -140,7 +140,7 @@ router.post('/movie_delete', (req, res) => {
 router.get('/basic1', (req, res) => {
     const connection = getConnection()
 
-    const queryString = "SELECT M.original_language FROM Movies M JOIN Awards A ON M.title = A.entity WHERE A.category = \"BEST MOTION PICTURE\" GROUP BY M.original_language ORDER BY COUNT(M.original_language) DESC"
+    const queryString = "SELECT M.original_language FROM movies M JOIN awards A ON M.title = A.entity WHERE A.category = \"BEST MOTION PICTURE\" GROUP BY M.original_language ORDER BY COUNT(M.original_language) DESC"
     connection.query(queryString, (err, results, fields) => {
         if (err) {
             console.log("Failed to execute basic query 1: " + err)
@@ -159,7 +159,7 @@ router.get('/basic1', (req, res) => {
 router.get('/basic2', (req, res) => {
     const connection = getConnection()
 
-    const queryString = "SELECT M.genre_ids0 FROM Movies M JOIN Awards A ON M.title = A.entity WHERE A.category = \"BEST MOTION PICTURE\" AND WINNER = \"TRUE\" UNION SELECT M.genre_ids0 FROM Movies M JOIN Awards A ON M.title = A.entity WHERE A.category = \"OUTSTANDING PICTURE\" AND WINNER = \"TRUE\""
+    const queryString = "SELECT M.genre_ids0 FROM movies M JOIN awards A ON M.title = A.entity WHERE A.category = \"BEST MOTION PICTURE\" AND WINNER = \"TRUE\" UNION SELECT M.genre_ids0 FROM Movies M JOIN Awards A ON M.title = A.entity WHERE A.category = \"OUTSTANDING PICTURE\" AND WINNER = \"TRUE\""
     connection.query(queryString, (err, results, fields) => {
         if (err) {
             console.log("Failed to execute basic query 2: " + err)
