@@ -99,8 +99,8 @@ app.get('/trend_get', (req, res) => {
         { out: "times" }
     );
     
-    var updateRes = db.times.update({}, { $rename: { "value": "keywordPair" } }, false, true)
-    db.times.find().toArray(function(err, docs) {
+    var updateRes = db.collection("times").update({}, { $rename: { "value": "keywordPair" } }, false, true)
+    db.collection("times").find().toArray(function(err, docs) {
         if (err) {
           handleError(res, err.message, "Failed to get trends.");
         } else {
