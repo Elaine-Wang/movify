@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import { Dropdown, Form, Divider, Button, Input, Image, Label, Card } from 'semantic-ui-react'
 
 import styles from './Home.scss'
@@ -34,8 +34,9 @@ class Home extends Component {
     var url = "https://aqueous-retreat-92283.herokuapp.com/movie/" + e.target.value
     axios.get(url)
       .then(function (response) {
-        this.setState(function() {
+        this.setState(function () {
           return {
+            username: '',
             resultsList: response.data,
           }
         });
@@ -46,53 +47,53 @@ class Home extends Component {
 
   selectOrder(e, data) {
     if (data.value == 'true') {
-      this.setState(function() {
+      this.setState(function () {
         return {
           ascending: true,
         }
-      }, () => (this.ascendingSort.call(this)) );
+      }, () => (this.ascendingSort.call(this)));
     }
     else {
-      this.setState(function() {
+      this.setState(function () {
         return {
           ascending: false,
         }
-      }, () => (this.descendingSort.call(this)) );
+      }, () => (this.descendingSort.call(this)));
     }
   }
 
   filterResults(e, data) {
-    this.setState(function() {
+    this.setState(function () {
       return {
         currentSort: data.value,
       }
-    }, () => (this.callSort.call(this)) );
-}
+    }, () => (this.callSort.call(this)));
+  }
 
   callSort() {
     if (this.state.currentSort == 'popularity') {
-        this.popularitySort.call(this);
+      this.popularitySort.call(this);
     }
     else if (this.state.currentSort == 'vote_count') {
-        this.voteSort.call(this);
+      this.voteSort.call(this);
     } else if (this.state.currentSort == 'vote_average') {
-        this.ratingSort.call(this);
+      this.ratingSort.call(this);
     }
   }
 
   ratingSort() {
     let releaselist = this.state.resultsList;
-    if(this.state.ascending == 'false') {
-      releaselist.sort(function(one, two) {
+    if (this.state.ascending == 'false') {
+      releaselist.sort(function (one, two) {
         return one.vote_average - two.vote_average;
       })
     }
     else {
-      releaselist.sort(function(one, two) {
+      releaselist.sort(function (one, two) {
         return two.vote_average - one.vote_average;
       })
     }
-    this.setState(function() {
+    this.setState(function () {
       return {
         resultsList: releaselist,
       }
@@ -101,17 +102,17 @@ class Home extends Component {
 
   popularitySort() {
     let popularlist = this.state.resultsList;
-    if(this.state.ascending == 'false') {
-      popularlist.sort(function(one, two) {
+    if (this.state.ascending == 'false') {
+      popularlist.sort(function (one, two) {
         return one.popularity - two.popularity;
       })
     }
     else {
-      popularlist.sort(function(one, two) {
+      popularlist.sort(function (one, two) {
         return two.popularity - one.popularity;
       })
     }
-    this.setState(function() {
+    this.setState(function () {
       return {
         resultsList: popularlist,
       }
@@ -120,17 +121,17 @@ class Home extends Component {
 
   voteSort() {
     let votelist = this.state.resultsList;
-    if(this.state.ascending == 'false') {
-      votelist.sort(function(one, two) {
+    if (this.state.ascending == 'false') {
+      votelist.sort(function (one, two) {
         return one.vote_count - two.vote_count;
       })
     }
     else {
-      votelist.sort(function(one, two) {
+      votelist.sort(function (one, two) {
         return two.vote_count - one.vote_count;
       })
     }
-    this.setState(function() {
+    this.setState(function () {
       return {
         resultsList: votelist,
       }
@@ -139,17 +140,17 @@ class Home extends Component {
 
   ascendingSort() {
     let list = this.state.resultsList;
-    if(this.state.currentSort == 'popularity') {
-      list.sort(function(one, two) {
+    if (this.state.currentSort == 'popularity') {
+      list.sort(function (one, two) {
         return one.popularity - two.popularity;
       })
     }
     else {
-      list.sort(function(one, two) {
-        return one.vote_count - two.vote_count ;
+      list.sort(function (one, two) {
+        return one.vote_count - two.vote_count;
       })
     }
-    this.setState(function() {
+    this.setState(function () {
       return {
         resultsList: list,
       }
@@ -158,17 +159,17 @@ class Home extends Component {
 
   descendingSort() {
     let list = this.state.resultsList;
-    if(this.state.currentSort == 'vote_count') {
-      list.sort(function(one, two) {
-        return two.vote_count - one.vote_count ;
+    if (this.state.currentSort == 'vote_count') {
+      list.sort(function (one, two) {
+        return two.vote_count - one.vote_count;
       })
     }
     else {
-      list.sort(function(one, two) {
-        return two.vote_count - one.vote_count ;
+      list.sort(function (one, two) {
+        return two.vote_count - one.vote_count;
       })
     }
-    this.setState(function() {
+    this.setState(function () {
       return {
         resultsList: list,
       }
@@ -178,11 +179,16 @@ class Home extends Component {
   //GO TO DETAIL VIEW
 
   pushToDetail(index) {
-    this.props.history.push ({
+    this.props.history.push({
       pathname: '/detail',
       id: index,
       movies: this.state.resultsList,
     });
+  }
+
+  handleLogin(e) {
+    console.log(e.target.value)
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -190,54 +196,55 @@ class Home extends Component {
     const { currentSort } = this.state
     const { ascending } = this.state
     const { match, location, history } = this.props
-    console.log(match)
-    console.log(location)
-    console.log(history)
-    const { username } = location.state
-    console.log(username)
     const options = [
       { key: 'popularity', text: 'popularity', value: 'popularity' },
       { key: 'vote_average', text: 'rating', value: 'vote_average' },
       { key: 'vote_count', text: 'number of votes', value: 'vote_count' },
     ]
-        return(
-            <div className="Home">
-               <div className="searchBar">
-                <Form>
-                   <Form.Field>
-                     <input type='text' onChange={e => this.handleChange(e)} placeholder='Movie'/>
-                   </Form.Field>
-                  </Form>
-                  <Dropdown placeholder='Filter by' fluid search selection options={options} selection value={currentSort} onChange={this.filterResults.bind(this)}/>
-                  <Button.Group fluid>
-                    <Button className="mybutton" value="false" onClick={this.selectOrder.bind(this)}>descending</Button>
-                    <Button className="mybutton" value="true" onClick={this.selectOrder.bind(this)}>ascending</Button>
-                  </Button.Group>
-               </div>
-               <Card.Group itemsPerRow={5} className="movies"> {
-                  this.state.resultsList.map((movie, index) => {
-                    return (
-                      <Card className="hoverme" key={index + "item"}>
-                      <Image className="centerMe" onClick={function(){this.pushToDetail(index)}.bind(this)} src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} key={index + "image"} />
-                        <Card.Content key={index + "title"}>
-                          {movie.title}
-                        </Card.Content>
-                        <Card.Content extra key={index + "rating"}>
-                          Rating: {movie.vote_average}
-                        </Card.Content>
-                        <Card.Content extra key={index + "votes"}>
-                          Votes: {movie.vote_count}
-                        </Card.Content>
-                      </Card>
-                    )
-                  })
-                }
-              </Card.Group>
-          </div>
-      )
+    return (
+      <div className="Home">
+        <div className="searchBar">
+          <Form onSubmit={this.handleLogin}>
+            <Form.Input placeholder='Username' name="username"></Form.Input>
+            <Form.Button>Create</Form.Button>
+          </Form>
+        </div>
+        <div className="searchBar">
+          <Form>
+            <Form.Field>
+              <input type='text' onChange={e => this.handleChange(e)} placeholder='Movie' />
+            </Form.Field>
+          </Form>
+          <Dropdown placeholder='Filter by' fluid search selection options={options} selection value={currentSort} onChange={this.filterResults.bind(this)} />
+          <Button.Group fluid>
+            <Button className="mybutton" value="false" onClick={this.selectOrder.bind(this)}>descending</Button>
+            <Button className="mybutton" value="true" onClick={this.selectOrder.bind(this)}>ascending</Button>
+          </Button.Group>
+        </div>
+        <Card.Group itemsPerRow={5} className="movies"> {
+          this.state.resultsList.map((movie, index) => {
+            return (
+              <Card className="hoverme" key={index + "item"}>
+                <Image className="centerMe" onClick={function () { this.pushToDetail(index) }.bind(this)} src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} key={index + "image"} />
+                <Card.Content key={index + "title"}>
+                  {movie.title}
+                </Card.Content>
+                <Card.Content extra key={index + "rating"}>
+                  Rating: {movie.vote_average}
+                </Card.Content>
+                <Card.Content extra key={index + "votes"}>
+                  Votes: {movie.vote_count}
+                </Card.Content>
+              </Card>
+            )
+          })
+        }
+        </Card.Group>
+      </div>
+    )
   }
 }
 
-render(<Home/>,document.getElementById('root'))
+render(<Home />, document.getElementById('root'))
 
 export default Home

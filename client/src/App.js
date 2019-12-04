@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import { Form } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 
 import Home from './components/Home/Home.jsx';
@@ -12,43 +11,18 @@ import Basic from './components/Basic/Basic.jsx';
 require('./styles/main.scss');
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: 'user',
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleLogin(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
   render() {
     return (
       <div className="nav">
         <Router>
-          <div className="splitNav">
-            <div>
-              <h1><Link to="/" className="links">MOVIFY</Link> </h1>
-              <h2>
-                <Link to={{
-                  pathname: '/',
-                  state: {
-                    username: this.state.username
-                  }
-                }} className="links">SEARCH</Link>
-                <Link to="/gallery" className="links">GALLERY</Link>
-                <Link to="/create" className="links">CREATE-UPDATE-DELETE</Link>
-                <Link to="/basic" className="links">BASIC-QUERIES</Link>
-              </h2>
-            </div>
-            <div>
-              <Form onSubmit={this.handleLogin}>
-                <Form.Input placeholder='Username' name="username"></Form.Input>
-                <Form.Button>Create</Form.Button>
-              </Form>
-            </div>
+          <div>
+            <h1><Link to="/" className="links">MOVIFY</Link> </h1>
+            <h2>
+              <Link to="/" className="links">SEARCH</Link>
+              <Link to="/gallery" className="links">GALLERY</Link>
+              <Link to="/create" className="links">CREATE-UPDATE-DELETE</Link>
+              <Link to="/basic" className="links">BASIC-QUERIES</Link>
+            </h2>
           </div>
         </Router>
         <Router>
