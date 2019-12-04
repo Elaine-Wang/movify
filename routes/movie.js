@@ -14,7 +14,7 @@ router.post('/movie_create', (req, res) => {
 
     const connection = getConnection()
 
-    const queryString = "INSERT INTO movies (title, original_language, overview) VALUES (?, ?, ?)"
+    const queryString = "INSERT IGNORE INTO movies (title, original_language, overview) VALUES (?, ?, ?)"
     connection.query(queryString, [title, original_language, overview], (err, results, fields) => {
         if (err) {
             console.log("Failed to insert new movie: " + err)
