@@ -19,7 +19,7 @@ export default class Log extends Component {
 
   handleLog(e) {
     e.preventDefault();
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/log';
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/log_get';
     axios.get(url)
       .then(function(response) {
           this.setState({
@@ -33,8 +33,7 @@ export default class Log extends Component {
       <div className="Log">
         <div className="centerMeBasic">
           <Form onSubmit={this.handleLog} method="GET">
-            <h2 className="basicQuery">Get</h2>
-            <Form.Button className="buttonBasic">Search</Form.Button>
+            <Form.Button className="buttonBasic">Get Log</Form.Button>
             <ul>
               {this.state.logs.map(log =>
                 <li key={log.id}>

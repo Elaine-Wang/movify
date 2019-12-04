@@ -3,7 +3,7 @@ const express = require("express")
 const mysql = require("mysql")
 const router = express.Router()
 
-router.get('/log', (req, res) => {
+router.get('/log_get', (req, res) => {
     const connection = getConnection()
 
     const queryString = "SELECT * FROM log"

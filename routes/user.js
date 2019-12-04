@@ -27,42 +27,6 @@ router.post('/user_like', (req, res) => {
     res.send()
 })
 
-// // READ
-// router.get("/movies", (req, res) => {
-//     const connection = getConnection()
-//     const queryString = "SELECT * FROM movies"
-//     connection.query(queryString, (err, rows, fields) => {
-//         if (err) {
-//             console.log("Failed to query for movies: " + err)
-//             res.sendStatus(500)
-//             return
-//         }
-
-//         console.log("Fetched movies successfully")
-//         res.json(rows)
-//     })
-// })
-
-// router.get('/movie/:title', (req, res) => {
-//     console.log("Fetching movie with title: " + req.params.title)
-
-//     const connection = getConnection()
-
-//     const movieTitle = req.params.title
-//     const queryString = "SELECT * FROM movies WHERE LOWER(movies.title) LIKE LOWER(\"%\"?\"%\")"
-//     connection.query(queryString, [movieTitle], (err, rows, fields) => {
-//         console.log(queryString)
-//         if (err) {
-//             console.log("Failed to query for movies: " + err)
-//             res.sendStatus(500)
-//             return
-//         }
-
-//         console.log("Fetched movies successfully")
-//         res.json(rows)
-//     })
-// })
-
 // DELETE
 router.post('/user_dislike', (req, res) => {
     const username = req.body.username
