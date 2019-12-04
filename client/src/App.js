@@ -7,7 +7,7 @@ import Gallery from './components/Gallery/Gallery.jsx';
 import Detail from './components/Detail/Detail.jsx';
 import Create from './components/Create/Create.jsx';
 import Basic from './components/Basic/Basic.jsx';
-import Log from './components/Basic/Log.jsx';
+import Log from './components/Log/Log.jsx';
 
 require('./styles/main.scss');
 
