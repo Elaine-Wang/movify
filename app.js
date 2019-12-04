@@ -30,11 +30,11 @@ app.use(logs)
 app.use(recommendations)
 app.use(trends)
 
-let db = mongoose.connection;
 const dbRoute = 'mongodb://heroku_nmhhktbj:h62h6n86lhb84iokc6qapdknik@ds351628.mlab.com:51628/heroku_nmhhktbj';
 mongoose.connect(dbRoute, err => {
     console.log(err)
 });
+let db = mongoose.connection;
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => {
