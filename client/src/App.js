@@ -7,6 +7,7 @@ import Gallery from './components/Gallery/Gallery.jsx';
 import Detail from './components/Detail/Detail.jsx';
 import Create from './components/Create/Create.jsx';
 import Basic from './components/Basic/Basic.jsx';
+import Log from './components/Basic/Log.jsx';
 
 require('./styles/main.scss');
 
@@ -22,6 +23,7 @@ export default class App extends Component {
               <Link to="/gallery" className="links">GALLERY</Link>
               <Link to="/create" className="links">CREATE-UPDATE-DELETE</Link>
               <Link to="/basic" className="links">BASIC-QUERIES</Link>
+              <Link to="/log" className="links">LOG</Link>
             </h2>
           </div>
         </Router>
@@ -32,6 +34,7 @@ export default class App extends Component {
             <Route exact path='/detail' component={Detail} />
             <Route exact path='/create' component={Create} />
             <Route exact path='/basic' component={Basic} />
+            <Route exact path='/log' component={Log} />
           </Switch>
         </Router>
       </div>
