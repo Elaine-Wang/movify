@@ -14,12 +14,16 @@
     Form {
         background-color: #E0F7FF;
         padding: 15px;
-        border: 3px solid black;
+        border: 3px solid #4F2C26;
         margin: 20px;
     }
 
+    Form.Button {
+      margin-top: 10px;
+    }
+
     .basicQuery {
-      color: black;
+      color: #4F2C26;
     }
     
 }

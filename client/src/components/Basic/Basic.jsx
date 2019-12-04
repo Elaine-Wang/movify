@@ -53,9 +53,10 @@ export default class Create extends Component {
         <div className="centerMeBasic">
           <Form onSubmit={this.handleBasic1} method="GET">
             <h2 className="basicQuery">Languages with the most movies nominated for an Oscar</h2>
-            <Form.Button>Search</Form.Button><ul>
+            <Form.Button>Search</Form.Button>
+            <ul>
               {this.state.languages.map(language =>
-                <li>{language}</li>
+                <li key={language.id}>{language.original_language}</li>
               )}
             </ul>
           </Form>
@@ -67,7 +68,7 @@ export default class Create extends Component {
             <Form.Button>Search</Form.Button>
             <ul>
               {this.state.genres.map(genre =>
-                <li>{genre}</li>
+                <li key={genre.id}>{genre.genre_ids0}</li>
               )}
             </ul>
           </Form>
