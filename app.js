@@ -33,20 +33,10 @@ app.use(logs)
 app.use(recommendations)
 app.use(trends)
 
+let db = mongoose.connection;
 const dbRoute = 'mongodb://heroku_nmhhktbj:h62h6n86lhb84iokc6qapdknik@ds351628.mlab.com:51628/heroku_nmhhktbj';
-
-// Connect to the database before starting the application server.
-mongoose.connect(dbRoute, function (err, client) {
-    if (err) {
-        console.log(err);
-        process.exit(1);
-    } else {
-        let db = mongoose.connection;
-        db.once('open', () => console.log('connected to the database'));
-    }
-
-    // // checks if connection with the database is successful
-    // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connect(dbRoute, options, err => {
+    console.log(err)
 });
 
 const PORT = process.env.PORT || 3003
