@@ -7,21 +7,21 @@ router.get('/trend_get', (req, res) => {
     // console.log("TREND DB", db)
 
     var mapFunc = function () {
-        for (var idx1 = 0; idx1 < this.keywords.length; idx1++) {
-            for (var idx2 = idx1 + 1; idx2 < this.keywords.length; idx2++) {
-                emit(this.keywords[idx1], this.keywords[idx2]);
-                emit(this.keywords[idx2], this.keywords[idx1]);
+        for (var idx1 = 0; idx1 < this.tags.length; idx1++) {
+            for (var idx2 = idx1 + 1; idx2 < this.tags.length; idx2++) {
+                emit(this.tags[idx1], this.tags[idx2]);
+                emit(this.tags[idx2], this.tags[idx1]);
             }
         }
     };
 
-    var reduceFunc = function (keyKeywordId, keywords) {
-        if (keywords.length === 0)
+    var reduceFunc = function (keyKeywordId, tags) {
+        if (tags.length === 0)
             return -1;
         var modeMap = {};
-        var maxEl = keywords[0], maxCount = 1;
-        for (var i = 0; i < keywords.length; i++) {
-            var el = keywords[i];
+        var maxEl = tags[0], maxCount = 1;
+        for (var i = 0; i < tags.length; i++) {
+            var el = tags[i];
             if (modeMap[el] == null)
                 modeMap[el] = 1;
             else
@@ -39,7 +39,7 @@ router.get('/trend_get', (req, res) => {
         return maxEl;
     };
 
-    var mapReduceRes = db.keywords.mapReduce(
+    var mapReduceRes = db.collection("keywords").mapReduce(
         mapFunc,
         reduceFunc,
         { out: "times" }
