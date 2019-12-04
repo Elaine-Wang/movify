@@ -5,7 +5,7 @@ const mysql = require('mysql')
 const path = require('path');
 const mongoose = require('mongoose');
 const mongodb = require('mongodb');
-
+var ObjectID = mongodb.ObjectID;
 
 const bodyParser = require('body-parser')
 
@@ -48,7 +48,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   }
 
   // Save database object from the callback for reuse.
-  db = database;
+  db = database.db('heroku_nmhhktbj');
   console.log("Database connection ready");
 
     const PORT = process.env.PORT || 3003
