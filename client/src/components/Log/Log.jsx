@@ -38,8 +38,7 @@ export default class Log extends Component {
               {this.state.logs.map(log =>
                 <li key={log.id}>
                     {log.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {log.title}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    https://www.imdb.com/title/{log.id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href={"https://www.imdb.com/title/" + log.id}>{log.title}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {log.updateTime}
                 </li>
               )}
