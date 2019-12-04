@@ -151,8 +151,6 @@ router.get('/basic1', (req, res) => {
         console.log("Successfully executed basic query 1")
         res.json(results)
     })
-
-    res.end()
 })
 
 // BASIC QUERY 2
@@ -170,8 +168,6 @@ router.get('/basic2', (req, res) => {
         console.log("Successfully executed basic query 2")
         res.json(results)
     })
-
-    res.end()
 })
 
 const pool = mysql.createPool({
