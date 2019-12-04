@@ -37,7 +37,7 @@ export default class Log extends Component {
             <Form.Button className="buttonBasic">Search</Form.Button>
             <ul>
               {this.state.logs.map(log =>
-                <li key={logs.id}>
+                <li key={log.id}>
                     {log.username}
                     {log.title}
                     {log.id}
