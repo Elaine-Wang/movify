@@ -35,6 +35,7 @@ mongoose.connect(dbRoute, err => {
     console.log(err)
 });
 let db = mongoose.connection;
+console.log("APP DB", db)
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => {
