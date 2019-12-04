@@ -204,9 +204,8 @@ class Home extends Component {
     return (
       <div className="Home">
         <div className="searchBar">
-          <Form onSubmit={this.handleLogin}>
-            <Form.Input placeholder='Username' name="username"></Form.Input>
-            <Form.Button>Create</Form.Button>
+          <Form>
+            <Form.Input placeholder='Username' name="username" onChange={this.handleLogin}></Form.Input>
           </Form>
         </div>
         <div className="searchBar">
