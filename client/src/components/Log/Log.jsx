@@ -37,9 +37,9 @@ export default class Log extends Component {
             <ul>
               {this.state.logs.map(log =>
                 <li key={log.id}>
-                    {log.username}&nbsp;
-                    {log.title}&nbsp;
-                    https://www.imdb.com/title/{log.id}&nbsp;
+                    {log.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {log.title}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    https://www.imdb.com/title/{log.id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {log.updateTime}
                 </li>
               )}
