@@ -254,10 +254,10 @@ class Home extends Component {
                   {movie.title}
                 </Card.Content>
                 <Card.Content extra key={index + "like"}>
-                  <Button className="mybutton" value={movie} onClick={this.handleLike.bind(movie)}>
+                  <Button className="likebutton" value={movie} onClick={this.handleLike.bind(this)}>
                     <Icon name='thumbs up'/>
                   </Button>
-                  <Button className="mybutton" value={movie} onClick={this.handleDislike.bind(movie)}>
+                  <Button className="likebutton" value={movie} onClick={this.handleDislike.bind(this)}>
                     <Icon name='thumbs down'/>
                   </Button>
                 </Card.Content>

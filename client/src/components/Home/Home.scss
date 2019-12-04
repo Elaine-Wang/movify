@@ -33,6 +33,22 @@
       
     }
 
+    .likebutton {
+      background-color: #FFFBA7;
+      color: #4F2C26;
+      padding: 6px 2px 8px 10px !important;
+    }
+
+    .likebutton:focus {
+      background-color: #E9AFA3;
+      color:  white;
+    } 
+
+    .likebutton:hover {
+      background-color: #E0F7FF;
+      color: #4F2C26;
+    }
+
     .mybutton:focus {
       background-color: #E9AFA3;
       color:  white;
