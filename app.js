@@ -3,8 +3,10 @@ const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
 const path = require('path');
-const mongodb = require("mongodb");
+//var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
+const mongoose = require('mongoose');
+
 
 const bodyParser = require('body-parser')
 
@@ -23,18 +25,18 @@ const movies = require('./routes/movie.js')
 const users = require('./routes/user.js')
 const logs = require('./routes/log.js')
 const recommendations = require('./routes/recommendation.js')
-// const trends = require('./routes/trends.js')
+//const trends = require('./routes/trends.js')
 
 app.use(movies)
 app.use(users)
 app.use(logs)
 app.use(recommendations)
-// app.use(trends)
+//app.use(trends)
 
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
     if (err) {
         console.log(err);
         process.exit(1);
