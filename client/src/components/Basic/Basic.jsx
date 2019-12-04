@@ -56,7 +56,7 @@ export default class Create extends Component {
           {/* <Divider horizontal><Icon inverted circular name="video" /></Divider> */}
 
           <Form onSubmit={this.handleBasic2} method="POST">
-            <h2 className="basicQueryBasic">Genres with the most movies that won an Oscar</h2>
+            <h2 className="basicQuery">Genres with the most movies that won an Oscar</h2>
             <Form.Button>Search</Form.Button>
             <ul>
               {this.state.genres.map(genre =>
