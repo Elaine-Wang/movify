@@ -28,12 +28,6 @@ class Home extends Component {
     this.descendingSort = this.descendingSort.bind(this);
   }
 
-  componentDidMount () {
-    console.log(this.props.history.location)
-    console.log(this.props.location.state)
-    const { username } = this.props.history.location.state
-  }
-
   //MOVIE SEARCH
 
   handleChange(e) {
@@ -196,6 +190,8 @@ class Home extends Component {
     const { currentSort } = this.state
     const { ascending } = this.state
     const { match, location, history } = this.props
+    const { username } = this.props.location.state
+    console.log(username)
     const options = [
       { key: 'popularity', text: 'popularity', value: 'popularity' },
       { key: 'vote_average', text: 'rating', value: 'vote_average' },
