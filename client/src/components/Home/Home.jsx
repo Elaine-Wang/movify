@@ -30,11 +30,6 @@ class Home extends Component {
 
   componentDidMount () {
     const { username } = this.props.location.state
-
-    fetch(`https://api.twitter.com/user/${handle}`)
-      .then((user) => {
-        this.setState(() => ({ user }))
-      })
   }
 
   //MOVIE SEARCH
