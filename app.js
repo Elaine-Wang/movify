@@ -20,10 +20,12 @@ app.get("/", (req, res) => {
 const movies = require('./routes/movie.js')
 const users = require('./routes/user.js')
 const logs = require('./routes/log.js')
+const recommendations = require('./routes/recommendation.js')
 
 app.use(movies)
 app.use(users)
 app.use(logs)
+app.use(recommendations)
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => {
