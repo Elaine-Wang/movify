@@ -4,6 +4,8 @@ import db from '../app.js'
 const router = express.Router()
 
 router.get('/trend_get', (req, res) => {
+    console.log(db)
+
     var mapFunc = function () {
         for (var idx1 = 0; idx1 < this.keywords.length; idx1++) {
             for (var idx2 = idx1 + 1; idx2 < this.keywords.length; idx2++) {
