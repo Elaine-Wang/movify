@@ -3,7 +3,7 @@ const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
 const path = require('path');
-var mongodb = require("mongodb");
+const mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 const bodyParser = require('body-parser')
@@ -23,13 +23,13 @@ const movies = require('./routes/movie.js')
 const users = require('./routes/user.js')
 const logs = require('./routes/log.js')
 const recommendations = require('./routes/recommendation.js')
-const trends = require('./routes/trends.js')
+// const trends = require('./routes/trends.js')
 
 app.use(movies)
 app.use(users)
 app.use(logs)
 app.use(recommendations)
-app.use(trends)
+// app.use(trends)
 
 var db;
 
