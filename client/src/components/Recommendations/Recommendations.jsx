@@ -23,7 +23,7 @@ export default class Recommendations extends Component {
     axios.get(url)
       .then(function(response) {
           this.setState({
-              recommendations: response.data,
+              recommendations: response.data[2],
           });
       }.bind(this),);
   }
