@@ -33,8 +33,6 @@ app.use(logs)
 app.use(recommendations)
 app.use(trends)
 
-var db;
-
 const dbRoute = 'mongodb://heroku_nmhhktbj:h62h6n86lhb84iokc6qapdknik@ds351628.mlab.com:51628/heroku_nmhhktbj';
 
 // Connect to the database before starting the application server.
