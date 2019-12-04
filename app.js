@@ -34,8 +34,7 @@ const dbRoute = 'mongodb://heroku_nmhhktbj:h62h6n86lhb84iokc6qapdknik@ds351628.m
 mongoose.connect(dbRoute, err => {
     console.log(err)
 });
-let db = mongoose.connection;
-console.log("APP DB", db)
+console.log("TRENDS DB", mongoose.keywords)
 
 const PORT = process.env.PORT || 3003
 app.listen(PORT, () => {

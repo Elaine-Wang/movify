@@ -4,7 +4,7 @@ const db = require('../app.js')
 const router = express.Router()
 
 router.get('/trend_get', (req, res) => {
-    console.log("TREND DB", db)
+    // console.log("TREND DB", db)
 
     var mapFunc = function () {
         for (var idx1 = 0; idx1 < this.keywords.length; idx1++) {
