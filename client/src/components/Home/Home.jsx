@@ -32,19 +32,19 @@ class Home extends Component {
     this.handleDislike = this.handleDislike.bind(this);
   }
 
-  loadGallery() {
-    var url = "https://aqueous-retreat-92283.herokuapp.com/movies/"
-    axios.get(url)
-      .then(function(response) {
-          this.setState({
-              resultsList: response.data,
-          });
-      }.bind(this),);
-  }
+  // loadGallery() {
+  //   var url = "https://aqueous-retreat-92283.herokuapp.com/movies/"
+  //   axios.get(url)
+  //     .then(function(response) {
+  //         this.setState({
+  //             resultsList: response.data,
+  //         });
+  //     }.bind(this),);
+  // }
 
-  componentDidMount() {
-    this.loadGallery();
-  }
+  // componentDidMount() {
+  //   this.loadGallery();
+  // }
 
   //MOVIE SEARCH
 
@@ -204,7 +204,7 @@ class Home extends Component {
   }
 
   handleLogin(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ username: e.target.value });
   }
 
   handleLike(e, data) {
