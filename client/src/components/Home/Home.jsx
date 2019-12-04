@@ -28,6 +28,15 @@ class Home extends Component {
     this.descendingSort = this.descendingSort.bind(this);
   }
 
+  componentDidMount () {
+    const { username } = this.props.location.state
+
+    fetch(`https://api.twitter.com/user/${handle}`)
+      .then((user) => {
+        this.setState(() => ({ user }))
+      })
+  }
+
   //MOVIE SEARCH
 
   handleChange(e) {

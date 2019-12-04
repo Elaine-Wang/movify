@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { Form } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 
 import Home from './components/Home/Home.jsx';
@@ -19,7 +20,7 @@ export default class App extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
+  handleLogin(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -43,7 +44,10 @@ export default class App extends Component {
               </h2>
             </div>
             <div>
-              <Form.Input placeholder='Username' name="username" onChange={this.handleChange}></Form.Input>
+              <Form onSubmit={this.handleLogin}>
+                <Form.Input placeholder='Username' name="username"></Form.Input>
+                <Form.Button>Create</Form.Button>
+              </Form>
             </div>
           </div>
         </Router>
