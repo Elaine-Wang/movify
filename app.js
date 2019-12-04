@@ -17,10 +17,7 @@ app.get("/", (req, res) => {
     res.send("Hello from ROOT")
 })
 
-const users = require('./routes/user.js')
 const movies = require('./routes/movie.js')
-
-app.use(users)
 app.use(movies)
 
 const PORT = process.env.PORT || 3003
