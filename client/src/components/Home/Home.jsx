@@ -206,7 +206,7 @@ class Home extends Component {
         <div className="searchBar">
           <Form>
             <Form.Field>
-              <input type='text' onChange={e => this.hangleLogin(e)} placeholder='Username' />
+              <input type='text' onChange={e => this.handleLogin(e)} placeholder='Username' />
               <input type='text' onChange={e => this.handleChange(e)} placeholder='Movie' />
             </Form.Field>
           </Form>
