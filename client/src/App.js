@@ -8,6 +8,7 @@ import Detail from './components/Detail/Detail.jsx';
 import Create from './components/Create/Create.jsx';
 import Basic from './components/Basic/Basic.jsx';
 import Log from './components/Log/Log.jsx';
+import Rec from './components/Recommendations/Recommendations.jsx';
 
 require('./styles/main.scss');
 
@@ -24,6 +25,7 @@ export default class App extends Component {
               <Link to="/create" className="links">CREATE-UPDATE-DELETE</Link>
               <Link to="/basic" className="links">BASIC-QUERIES</Link>
               <Link to="/log" className="links">LOG</Link>
+              <Link to="/rec" className="links">RECOMMENDATIONS</Link>
             </h2>
           </div>
         </Router>
@@ -35,6 +37,7 @@ export default class App extends Component {
             <Route exact path='/create' component={Create} />
             <Route exact path='/basic' component={Basic} />
             <Route exact path='/log' component={Log} />
+            <Route exact path='/rec' component={Rec} />
           </Switch>
         </Router>
       </div>

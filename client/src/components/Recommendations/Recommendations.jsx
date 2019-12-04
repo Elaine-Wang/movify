@@ -33,7 +33,7 @@ export default class Recommendations extends Component {
       <div className="Recommendations">
         <div className="centerMeBasic">
           <Form onSubmit={this.handleRec} method="GET">
-            <Form.Button className="buttonBasic">Get Log</Form.Button>
+            <Form.Button className="buttonBasic">Get Recommendations</Form.Button>
             <ul>
               {this.state.recommendations.map(recommendation =>
                 <li key={recommendation.id}>
