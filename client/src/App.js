@@ -9,6 +9,7 @@ import Create from './components/Create/Create.jsx';
 import Basic from './components/Basic/Basic.jsx';
 import Log from './components/Log/Log.jsx';
 import Rec from './components/Recommendations/Recommendations.jsx';
+import Trends from './components/Trends/Trends.jsx';
 
 require('./styles/main.scss');
 
@@ -26,6 +27,7 @@ export default class App extends Component {
               <Link to="/basic" className="links">BASIC-QUERIES</Link>
               <Link to="/log" className="links">LOG</Link>
               <Link to="/rec" className="links">RECOMMENDATIONS</Link>
+              <Link to="/trends" className="links">TRENDS</Link>
             </h2>
           </div>
         </Router>
@@ -38,6 +40,7 @@ export default class App extends Component {
             <Route exact path='/basic' component={Basic} />
             <Route exact path='/log' component={Log} />
             <Route exact path='/rec' component={Rec} />
+            <Route exact path='/trends' component={Trends} />
           </Switch>
         </Router>
       </div>
