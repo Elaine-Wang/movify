@@ -24,18 +24,22 @@ export default class Create extends Component {
     e.preventDefault();
     var url = 'https://aqueous-retreat-92283.herokuapp.com/basic1';
     axios.get(url)
-      .then(response => response.json())
-      .then(languages => this.setState({ languages }))
-      .catch(e => console.log(e))
+      .then(function(response) {
+          this.setState({
+              languages: response.data,
+          });
+      }.bind(this),);
   }
 
   handleBasic2(e) {
     e.preventDefault();
     var url = 'https://aqueous-retreat-92283.herokuapp.com/basic2';
     axios.get(url)
-      .then(response => response.json())
-      .then(genres => this.setState({ genres }))
-      .catch(e => console.log(e))
+    .then(function(response) {
+        this.setState({
+            genres: response.data,
+        });
+    }.bind(this),);
   }
 
   render() {
