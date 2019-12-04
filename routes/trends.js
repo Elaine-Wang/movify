@@ -1,9 +1,18 @@
 // contains all movie related routes
 const express = require("express")
-// var mongodb = require("mongodb")
+const mongoose = require('mongoose');
 const router = express.Router()
 
 router.get('/trend_get', (req, res) => {
+    mongoose.connect(process.env.MONGODB_URI, function (err, client) {
+        if (err) {
+            console.log(err);
+            process.exit(1);
+        }
+    
+       let db = mongoose.connection;
+    });
+
     var mapFunc = function () {
         for (var idx1 = 0; idx1 < this.keywords.length; idx1++) {
             for (var idx2 = idx1 + 1; idx2 < this.keywords.length; idx2++) {
