@@ -43,21 +43,21 @@ export default class Create extends Component {
           <div key={user.id}>{user.username}</div>
         )} */}
 
-        <div className="centerMe">
+        <div className="centerMeBasic">
           <Form onSubmit={this.handleBasic1} method="POST">
             <h2 className="basicQuery">Languages with the most movies nominated for an Oscar</h2>
-            <Form.Button>Create</Form.Button><ul>
+            <Form.Button>Search</Form.Button><ul>
               {this.state.languages.map(language =>
                 <li>{language}</li>
               )}
             </ul>
           </Form>
 
-          <Divider horizontal><Icon inverted circular name="video" /></Divider>
+          {/* <Divider horizontal><Icon inverted circular name="video" /></Divider> */}
 
           <Form onSubmit={this.handleBasic2} method="POST">
-            <h2 className="basicQuery">Genres with the most movies that won an Oscar</h2>
-            <Form.Button>Update</Form.Button>
+            <h2 className="basicQueryBasic">Genres with the most movies that won an Oscar</h2>
+            <Form.Button>Search</Form.Button>
             <ul>
               {this.state.genres.map(genre =>
                 <li>{genre}</li>

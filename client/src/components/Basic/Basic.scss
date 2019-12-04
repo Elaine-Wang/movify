@@ -3,9 +3,12 @@
     display: flex;
     justify-content: center;
 
-    .centerMe {
+    .centerMeBasic {
       margin: 0 auto;
       padding: 3% 5% 5% 5%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
     Form {

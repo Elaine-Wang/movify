@@ -149,7 +149,7 @@ router.get('/basic1', (req, res) => {
         }
 
         console.log("Successfully executed basic query 1")
-        res.end()
+        res.json(rows)
     })
 
     res.end()
@@ -168,7 +168,7 @@ router.get('/basic2', (req, res) => {
         }
 
         console.log("Successfully executed basic query 2")
-        res.end()
+        res.json(rows)
     })
 
     res.end()
