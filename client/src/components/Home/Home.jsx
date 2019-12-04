@@ -196,32 +196,31 @@ class Home extends Component {
 
   handleLike(e, data) {
     e.preventDefault();
-      var data = {
+      var toSend = {
         username: this.state.username,
-        title: data.title,
-        id: data.id,
-        genre: data.genre_ids0
+        title: data.value.title,
+        id: data.value.id,
+        genre: data.value.genre_ids0
     }
     var url = 'https://aqueous-retreat-92283.herokuapp.com/user_like';
-    axios.post(url, data)
+    axios.post(url, toSend)
       .then(response => console.log(response))
       .catch(e => console.log(e))
   }
 
   handleDislike(e, data) {
     e.preventDefault();
-      var data = {
+      var toSend = {
         username: this.state.username,
-        id: data.id,
+        id: data.value.id,
     }
     var url = 'https://aqueous-retreat-92283.herokuapp.com/user_dislike';
-    axios.post(url, data)
+    axios.post(url, toSend)
       .then(response => console.log(response))
       .catch(e => console.log(e))
   }
 
   render() {
-
     const { currentSort } = this.state
     const { ascending } = this.state
     const { match, location, history } = this.props
@@ -254,10 +253,10 @@ class Home extends Component {
                   {movie.title}
                 </Card.Content>
                 <Card.Content extra key={index + "like"}>
-                  <Button className="likebutton" value={movie} onClick={this.handleLike.bind(this)}>
+                  <Button value={movie} onClick={this.handleLike.bind(this)}>
                     <Icon name='thumbs up'/>
                   </Button>
-                  <Button className="likebutton" value={movie} onClick={this.handleDislike.bind(this)}>
+                  <Button value={movie} onClick={this.handleDislike.bind(this)}>
                     <Icon name='thumbs down'/>
                   </Button>
                 </Card.Content>
