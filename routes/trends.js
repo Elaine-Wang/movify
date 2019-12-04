@@ -37,14 +37,14 @@ router.get('/trend_get', (req, res) => {
         return maxEl;
     };
 
-    var mapReduceRes = heroku_nmhhktbj.keywords.mapReduce(
+    var mapReduceRes = db.keywords.mapReduce(
         mapFunc,
         reduceFunc,
         { out: "times" }
     );
     
-    var updateRes = heroku_nmhhktbj.times.update({}, { $rename: { "value": "keywordPair" } }, false, true)
-    heroku_nmhhktbj.times.find().toArray(function(err, docs) {
+    var updateRes = db.times.update({}, { $rename: { "value": "keywordPair" } }, false, true)
+    db.times.find().toArray(function(err, docs) {
         if (err) {
           handleError(res, err.message, "Failed to get trends.");
         } else {
@@ -56,7 +56,7 @@ router.get('/trend_get', (req, res) => {
 // const pool = mongodb.createPool({
 //     connectionLimit: 10,
 //     host: 'us-mm-dca-648e9a121678.g5.cleardb.net',
-//     user: 'heroku_nmhhktbj',
+//     user: 'db',
 //     password: 'h62h6n86lhb84iokc6qapdknik',
 //     database: 'heroku_de2493ad86ba222'
 // })
