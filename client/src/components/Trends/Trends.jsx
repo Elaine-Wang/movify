@@ -19,7 +19,7 @@ export default class Trends extends Component {
 
   handleRec(e) {
     e.preventDefault();
-    var url = 'https://movify-rrh.herokuapp.com/trend_get';
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/trend_get';
     axios.get(url)
       .then(function(response) {
           this.setState({

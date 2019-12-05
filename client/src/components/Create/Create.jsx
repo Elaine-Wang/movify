@@ -30,7 +30,7 @@ export default class Create extends Component {
       original_language: this.state.original_language,
       overview: this.state.overview
     }
-    var url = 'https://movify-rrh.herokuapp.com/movie_create';
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/movie_create';
     axios.post(url, data)
       .then(response => console.log(response))
       .catch(e => console.log(e))
@@ -44,7 +44,7 @@ export default class Create extends Component {
       original_language: this.state.original_language,
       overview: this.state.overview
     }
-    var url = 'https://movify-rrh.herokuapp.com/movie_update';
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/movie_update';
     axios.post(url, data)
       .then(response => console.log(response))
       .catch(e => console.log(e))
@@ -55,7 +55,7 @@ export default class Create extends Component {
     var data = {
       title: this.state.title,
     }
-    var url = 'https://movify-rrh.herokuapp.com/movie_delete';
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/movie_delete';
     axios.post(url, data)
       .then(response => console.log(response))
       .catch(e => console.log(e))

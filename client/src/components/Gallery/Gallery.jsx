@@ -22,7 +22,7 @@ class Gallery extends Component {
   }
 
   loadGallery() {
-    var url = "https://movify-rrh.herokuapp.com/movies/"
+    var url = "https://aqueous-retreat-92283.herokuapp.com/movies/"
     axios.get(url)
       .then(function(response) {
           this.setState({
@@ -33,7 +33,7 @@ class Gallery extends Component {
 
   filterGenre(e) {
     console.log(e.target.id)
-    var url = 'https://movify-rrh.herokuapp.com/gallery/' + e.target.id
+    var url = 'https://aqueous-retreat-92283.herokuapp.com/gallery/' + e.target.id
     axios.get(url)
       .then(function(response) {
           this.setState({
