@@ -43,7 +43,7 @@ export default class Create extends Component {
 
   handleBasic1(e) {
     e.preventDefault();
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/basic1';
+    var url = 'https://movify-rrh.herokuapp.com/basic1';
     axios.get(url)
       .then(function(response) {
           this.setState({
@@ -54,7 +54,7 @@ export default class Create extends Component {
 
   handleBasic2(e) {
     e.preventDefault();
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/basic2';
+    var url = 'https://movify-rrh.herokuapp.com/basic2';
     axios.get(url)
     .then(function(response) {
         this.setState({

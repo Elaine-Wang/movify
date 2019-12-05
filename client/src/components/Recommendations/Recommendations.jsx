@@ -19,7 +19,7 @@ export default class Recommendations extends Component {
 
   handleRec(e) {
     e.preventDefault();
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/rec_get';
+    var url = 'https://movify-rrh.herokuapp.com/rec_get';
     axios.get(url)
       .then(function(response) {
           this.setState({

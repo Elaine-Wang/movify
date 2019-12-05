@@ -33,7 +33,7 @@ class Home extends Component {
   }
 
   // loadGallery() {
-  //   var url = "https://aqueous-retreat-92283.herokuapp.com/movies/"
+  //   var url = "https://movify-rrh.herokuapp.com/movies/"
   //   axios.get(url)
   //     .then(function(response) {
   //         this.setState({
@@ -49,7 +49,7 @@ class Home extends Component {
   //MOVIE SEARCH
 
   handleChange(e) {
-    var url = "https://aqueous-retreat-92283.herokuapp.com/movie/" + e.target.value
+    var url = "https://movify-rrh.herokuapp.com/movie/" + e.target.value
     axios.get(url)
       .then(function (response) {
         this.setState(function () {
@@ -215,7 +215,7 @@ class Home extends Component {
         id: data.value.id,
         genre: data.value.genre_ids0
     }
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/user_like';
+    var url = 'https://movify-rrh.herokuapp.com/user_like';
     axios.post(url, toSend)
       .then(response => console.log(response))
       .catch(e => console.log(e))
@@ -227,7 +227,7 @@ class Home extends Component {
         username: this.state.username,
         id: data.value.id,
     }
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/user_dislike';
+    var url = 'https://movify-rrh.herokuapp.com/user_dislike';
     axios.post(url, toSend)
       .then(response => console.log(response))
       .catch(e => console.log(e))

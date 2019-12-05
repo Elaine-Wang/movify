@@ -19,7 +19,7 @@ export default class Log extends Component {
 
   handleLog(e) {
     e.preventDefault();
-    var url = 'https://aqueous-retreat-92283.herokuapp.com/log_get';
+    var url = 'https://movify-rrh.herokuapp.com/log_get';
     axios.get(url)
       .then(function(response) {
           this.setState({
